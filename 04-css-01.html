@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>CSS CSS核心概念:背景、盒模型、布局、动画</title>
+  <style>
+    body {
+      background-color: #f0b9f5;
+    }
+    /* 定义一个盒模型示例的样式 */
+    .box {
+      width: 200px;
+      height: 200px;
+      padding: 20px;
+      border: 5px solid #000;
+      margin: 30px;
+      /* 添加背景颜色 */
+      background-color: #ff6666;
+    }
+    /* 布局示例 */
+    .flex-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #f0f0f0;
+      padding: 20px;
+    }
+    .flex-item {
+      width: 100px;
+      height: 100px;
+      background-color: #66b3ff;
+      text-align: center;
+      line-height: 100px;
+      color: white;
+    }
+    /* 动画示例 */
+    .box-demo {
+      width: 300px;
+      margin: 50px; /* 外边距，设置为灰色背景方便观察 */
+      background-color: #e0e0e0;
+      padding: 30px; /* 内边距，设置为黄色 */
+      background-color: #fffacd;
+      border: 10px solid #ff6347; /* 边框，设置为红色 */
+    }
+    
+    .box-content {
+      background-color: #87cefa; /* 内容区，设置为蓝色 */
+      padding: 20px;
+      text-align: center;
+    }
+    /* 布局示例 */
+    .flex-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #cd94db;
+      padding: 20px;
+    }
+    .flex-item {
+      width: 100px;
+      height: 100px;
+      background-color: #66b3ff;
+      text-align: center;
+      line-height: 100px;
+      color: rgb(196, 158, 229);
+    }
+    /* 动画示例 */
+    .animated-box {
+      width: 100px;
+      height: 100px;
+      background-color: #ff6666;
+      position: relative;
+      animation: move 3s infinite;
+    }
+    @keyframes move {
+      0% { left: 0; }
+      50% { left: 200px; }
+      100% { left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS 核心概念:背景、盒模型、布局、动画</h1>
+  <section>
+    <h2>背景</h2>
+  </section>
+  <section>
+    <h2>盒模型</h2>
+    <div class="box"></div>
+  </section>
+  <section>
+    <h2>布局</h2>
+    <div class="flex-container">
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </section>
+  <section>
+    <h2>动画</h2>
+    <div class="animated-box"></div>
+  </section>
+</body>
+</html>
