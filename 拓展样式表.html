@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>CSS CSS核心概念:背景、盒模型、布局、动画</title>
+  <style>
+    body {
+      background-color: #f0b9f5;
+    }
+    /* 定义一个霸王别姬宣传图风格的盒模型示例的样式 */
+    .box {
+      width: 400px; /* 适当增大宽度以更好展示图片 */
+      height: 300px; /* 适当增大高度以更好展示图片 */
+      padding: 0; /* 去除内边距，让图片充满盒子 */
+      border: 5px solid #8B0000; /* 使用深红色边框，营造古典氛围 */
+      border-radius: 10px; /* 圆角边框，使盒子更美观 */
+      margin: 30px;
+      /* 假设你已经将霸王别姬的图片命名为 'farewell-my-concubine.jpg' 并放在与 HTML 文件相同的目录下 */
+      background-image: url('farewell-my-concubine.jpg'); 
+      background-size: cover; /* 让背景图片覆盖整个盒子 */
+      background-position: center; /* 背景图片居中显示 */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* 添加阴影效果，增强立体感 */
+    }
+    /* 布局示例 */
+    .flex-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #cd94db;
+      padding: 20px;
+    }
+    .flex-item {
+      width: 100px;
+      height: 100px;
+      background-color: #66b3ff;
+      text-align: center;
+      line-height: 100px;
+      color: rgb(196, 158, 229);
+    }
+    /* 动画示例 */
+    .animated-box {
+      width: 100px;
+      height: 100px;
+      background-color: #ff6666;
+      position: relative;
+      animation: move 3s infinite;
+    }
+    @keyframes move {
+      0% { left: 0; }
+      50% { left: 200px; }
+      100% { left: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>CSS 核心概念:背景、盒模型、布局、动画</h1>
+  <section>
+    <h2>背景</h2>
+  </section>
+  <section>
+    <h2>盒模型</h2>
+    <div class="box"></div>
+  </section>
+  <section>
+    <h2>布局</h2>
+    <div class="flex-container">
+      <div class="box"></div>
+      <div class="box"></div>
+    </div>
+  </section>
+  <section>
+    <h2>动画</h2>
+    <div class="animated-box"></div>
+  </section>
+</body>
+</html>
