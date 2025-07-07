@@ -1,0 +1,3727 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程练习导航-黄雪梅的作品集-《web前端开发》</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'KaiTi', serif; /* 修改字体为楷体 */
+            background: linear-gradient(135deg, #7C38BC, #5C2D91, #3A1C71);
+            min-height: 100vh;
+            color: black; /* 修改字体颜色为黑色 */
+            position: relative;
+        }
+        
+        /* 导航页样式 */
+        #navigation-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: all 0.5s ease;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px; /* 增大最大宽度 */
+            background: rgba(124, 56, 188, 0.92);
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(92, 45, 145, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            padding: 40px; /* 增大内边距 */
+            position: relative;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px; /* 增大底部外边距 */
+            padding: 30px 0; /* 增大上下内边距 */
+            border-bottom: 2px solid rgba(92, 45, 145, 0.4);
+        }
+        
+        h1 {
+            font-size: 3.8rem; /* 增大字体大小 */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px; /* 增大底部外边距 */
+            font-weight: 700;
+            color: black; /* 修改字体颜色为黑色 */
+            background: none; /* 移除背景渐变 */
+            -webkit-background-clip: unset; /* 重置背景裁剪 */
+            background-clip: unset; /* 重置背景裁剪 */
+            -webkit-text-fill-color: unset; /* 重置文本填充颜色 */
+        }
+        
+        .subtitle {
+            font-size: 1.4rem; /* 增大字体大小 */
+            color: black; /* 修改字体颜色为黑色 */
+            opacity: 0.8;
+            margin-bottom: 25px; /* 增大底部外边距 */
+        }
+        
+        .date-time {
+            display: flex;
+            justify-content: center;
+            gap: 25px; /* 增大间距 */
+            font-size: 1.3rem; /* 增大字体大小 */
+            color: black; /* 修改字体颜色为黑色 */
+            font-weight: 500;
+        }
+
+        .nav-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* 增大最小列宽 */
+            gap: 30px; /* 增大间距 */
+            margin-bottom: 50px; /* 增大底部外边距 */
+        }
+        
+        .category {
+            background: linear-gradient(to bottom right, #fff, #f3e9ff);
+            border-radius: 20px;
+            padding: 30px; /* 增大内边距 */
+            box-shadow: 0 8px 20px rgba(124, 56, 188, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(92, 45, 145, 0.25);
+        }
+        
+        .category h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px; /* 增大间距 */
+            color: black; /* 修改字体颜色为黑色 */
+            margin-bottom: 25px; /* 增大底部外边距 */
+            font-size: 1.6rem; /* 增大字体大小 */
+            padding-bottom: 15px; /* 增大底部内边距 */
+            border-bottom: 2px solid rgba(92, 45, 145, 0.2);
+        }
+        
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* 增大最小列宽 */
+            gap: 20px; /* 增大间距 */
+        }
+        
+        .link-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px 15px; /* 增大内边距 */
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: black; /* 修改字体颜色为黑色 */
+            position: relative;
+            overflow: hidden;
+            height: 140px; /* 增大高度 */
+        }
+        
+        .link-item:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(124, 56, 188, 0.2);
+        }
+        
+        .link-icon {
+            width: 60px; /* 增大宽度 */
+            height: 60px; /* 增大高度 */
+            background: linear-gradient(135deg, #9D65C9, #7C38BC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px; /* 增大底部外边距 */
+            font-size: 1.8rem; /* 增大字体大小 */
+            color: white; /* 保持图标颜色为白色 */
+        }
+        
+        .link-title {
+            font-size: 1.1rem; /* 增大字体大小 */
+            font-weight: 500;
+            color: black; /* 修改字体颜色为黑色 */
+        }
+        
+        /* CSS-02卡片特殊样式 */
+        .css-02 .link-icon {
+            background: conic-gradient(#7C38BC, #9D65C9, #7C38BC);
+        }
+        
+        /* 课程练习导航 */
+        .css-01 .link-icon {
+            animation: rotate 4s linear infinite;
+        }
+        
+        .css-03 {
+            background: linear-gradient(45deg, #f3e9ff, #e8d4ff);
+        }
+        
+        .css-04 .link-icon {
+            transform: scale(0.8);
+            animation: pulse 2s infinite;
+        }
+        
+        .css-05 .link-icon {
+            border-radius: 15px;
+            transition: all 0.5s;
+        }
+        
+        .css-05:hover .link-icon {
+            border-radius: 5px;
+            transform: rotate(45deg);
+        }
+        
+        .css-06 {
+            background: repeating-linear-gradient(
+                45deg,
+                #e8d4ff,
+                #e8d4ff 10px,
+                #d3b2ff 10px,
+                #d3b2ff 20px
+            );
+        }
+        
+        .css-07 .link-icon {
+            box-shadow: 0 0 0 0 rgba(92, 45, 145, 0.7);
+            animation: pulseShadow 2s infinite;
+        }
+        
+        .css-08 .link-icon {
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+        
+        .web-1 {
+            background: radial-gradient(circle, #e8d4ff, #d3b2ff);
+        }
+        
+        .web-2 {
+            background: 
+                linear-gradient(45deg, transparent 48%, #7C38BC 48%, #7C38BC 52%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, #7C38BC 48%, #7C38BC 52%, transparent 52%);
+            background-size: 20px 20px;
+        }
+        
+        .nested {
+            position: relative;
+        }
+        
+        .nested::before, .nested::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #7C38BC;
+            border-radius: 8px;
+        }
+        
+        .nested::before {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .nested::after {
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        /* 动画效果 */
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(0.8); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(0.8); }
+        }
+        
+        @keyframes pulseShadow {
+            0% { box-shadow: 0 0 0 0 rgba(92, 45, 145, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(92, 45, 145, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(92, 45, 145, 0); }
+        }
+        
+        .quick-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .quick-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 50px;
+            text-decoration: none;
+            color: black; /* 修改字体颜色为黑色 */
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .quick-link:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(124, 56, 188, 0.2);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(124, 56, 188, 0.4);
+            color: black; /* 修改字体颜色为黑色 */
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .category {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .date-time {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* 南昌旅游页面样式 */
+        #nanchang-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(to right, #7C38BC, #FFFFFF);
+            color: #f5f5f5;
+            overflow-x: hidden;
+            padding: 0;
+        }
+        
+        .back-to-nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #7C38BC;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-nav:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+        
+        .nanchang-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .nanchang-header {
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo-icon {
+            font-size: 3rem;
+            color: #7C38BC;
+            margin-right: 15px;
+            text-shadow: 0 0 10px rgba(124, 56, 188, 0.7);
+        }
+        
+        .nanchang-title {
+            font-size: 4rem;
+            font-weight: 800;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            letter-spacing: 3px;
+        }
+        
+        .nanchang-subtitle {
+            font-size: 1.5rem;
+            color: #f9d71c;
+            margin-top: 10px;
+            font-style: italic;
+        }
+        
+        nav {
+            background: rgba(124, 56, 188, 0.85);
+            border-radius: 50px;
+            padding: 15px;
+            margin: 30px auto;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links li {
+            margin: 0 15px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        .intro {
+            background: rgba(92, 45, 145, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border-left: 5px solid #f9d71c;
+        }
+        
+        .intro h2 {
+            color: #f9d71c;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .intro h2 i {
+            margin-right: 10px;
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .highlight {
+            color: #f9d71c;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin: 50px 0 30px;
+            color: #ffffff;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #7C38BC;
+            border-radius: 2px;
+        }
+        
+        .attractions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .card-img {
+            height: 250px;
+            overflow: hidden;
+            background: linear-gradient(45deg, #e8d4ff, #d3b2ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5C2D91;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card h3 {
+            font-size: 1.8rem;
+            color: #f9d71c;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h3 i {
+            margin-right: 10px;
+            color: #7C38BC;
+        }
+        
+        .card p {
+            margin-bottom: 20px;
+            color: #e0e0e0;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #7C38BC;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #7C38BC;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            color: #7C38BC;
+            transform: translateY(-3px);
+        }
+        
+        .food-section {
+            background: rgba(249, 215, 28, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 2px dashed #f9d71c;
+        }
+        
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .food-item {
+            text-align: center;
+            padding: 20px;
+            background: rgba(92, 45, 145, 0.6);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .food-item:hover {
+            transform: scale(1.05);
+            background: rgba(124, 56, 188, 0.7);
+        }
+        
+        .food-icon {
+            font-size: 3rem;
+            color: #f9d71c;
+            margin-bottom: 15px;
+        }
+        
+        .food-item h4 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .travel-tips {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .tip-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-top: 4px solid #f9d71c;
+        }
+        
+        .tip-card i {
+            font-size: 3rem;
+            color: #f9d71c;
+            margin-bottom: 20px;
+        }
+        
+        .tip-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .nanchang-footer {
+            background: rgba(92, 45, 145, 0.9);
+            padding: 40px 0;
+            margin-top: 80px;
+            text-align: center;
+            border-top: 3px solid #7C38BC;
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            color: #f9d71c;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: #7C38BC;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: #f9d71c;
+            color: #5C2D91;
+        }
+        
+        .copyright {
+            color: #aaa;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+        
+        .quote {
+            font-style: italic;
+            color: #f9d71c;
+            font-size: 1.2rem;
+            margin: 30px 0;
+            text-align: center;
+            padding: 15px;
+            border-left: 3px solid #7C38BC;
+            background: rgba(92, 45, 145, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .nanchang-title {
+                font-size: 2.8rem;
+            }
+            
+            .nanchang-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 8px 0;
+            }
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        /* 页面切换动画 */
+        .page-transition {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* CSS练习页面样式 */
+        #css-exercise-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+            color: #333;
+            font-family: 'Noto Sans SC', sans-serif;
+            padding: 20px;
+        }
+        
+        .exercise-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .back-to-nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #7C38BC;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-nav:hover {
+            background: white;
+            transform: translateY(-3px);
+        }
+        
+        .exercise-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #d3b2ff;
+        }
+        
+        .exercise-title {
+            font-size: 2.5rem;
+            color: #000000;
+            margin-bottom: 10px;
+            font-family: KaiTi, serif;
+        }
+        
+        .exercise-content {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f3e9ff;
+            border-radius: 15px;
+            border-left: 4px solid #7C38BC;
+        }
+        
+        /* 三界论坛页面样式 */
+        #forum-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(to right, #7C38BC, #FFFFFF);
+            color: #f0f0f0;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .forum-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .forum-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .forum-title {
+            font-family: KaiTi, serif;
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(124, 56, 188, 0.7);
+        }
+        
+        .forum-subtitle {
+            font-size: 1.2rem;
+            color: rgba(200, 200, 200, 0.8);
+        }
+        
+        .forum-content {
+            padding: 20px;
+            background: rgba(92, 45, 145, 0.2);
+            border-radius: 15px;
+        }
+        
+        .forum-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            border-left: 4px solid #7C38BC;
+        }
+        
+        .forum-section h2 {
+            font-family: KaiTi, serif;
+            font-size: 1.8rem;
+            color: rgba(0, 0, 0, 0.8);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .forum-section h2 i {
+            margin-right: 10px;
+            color: #7C38BC;
+        }
+        
+        .abstract {
+            font-size: 1.3rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            border: 1px dashed rgba(124, 56, 188, 0.5);
+        }
+        
+        .divider {
+            text-align: center;
+            font-size: 1.5rem;
+            color: rgba(92, 45, 145, 0.241);
+            margin: 30px 0;
+            letter-spacing: 10px;
+            font-weight: bold;
+        }
+        
+        .forum-posts {
+            margin-top: 30px;
+        }
+        
+        .post {
+            background: rgba(92, 45, 145, 0.6);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 3px solid #d9e3f3;
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .user-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #ffffff, #cfdeee);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .post-author {
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .post-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(220, 220, 220, 0.9);
+            padding-left: 55px;
+        }
+        
+        .post-emotion {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-left: 5px;
+        }
+        
+        .cultivation-symbol {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 3rem;
+            color: rgba(124, 56, 188, 0.5);
+            transform: rotate(30deg);
+        }
+        
+        .floating-symbol {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 2rem;
+            color: rgba(124, 56, 188, 0.5);
+            animation: floating 5s ease-in-out infinite;
+        }
+        
+        /* CSS核心概念页面样式 */
+        #css-core-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea);
+            color: #006064;
+            padding: 20px;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .core-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .core-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #00838f;
+        }
+        
+        .core-title {
+            font-size: 2.8rem;
+            color: #00838f;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .core-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #e8f4f8;
+            border-radius: 15px;
+            border-left: 4px solid #00838f;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .core-section h2 {
+            color: #006064;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .core-section h2 i {
+            margin-right: 10px;
+            color: #00838f;
+        }
+        
+        .box {
+            width: 200px;
+            height: 200px;
+            border: dashed #b73bc2 2px;
+            padding: 20px;
+            margin: 20px auto;
+            border-radius: 20px;
+            background: #fce4ec;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .display-demo {
+            margin: 20px 0;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 10px;
+        }
+        
+        .display-demo p {
+            display: inline;
+            padding: 8px 15px;
+            background: #e0f2f1;
+            margin: 5px;
+            border-radius: 5px;
+        }
+        
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .flex-container p {
+            border: 1px solid #00838f;
+            margin-right: 1em;
+            padding: 15px;
+            min-width: 100px;
+            text-align: center;
+            border-radius: 8px;
+            background: #e1f5fe;
+            flex: 1;
+            min-width: 120px;
+        }
+        
+        .animate-box {
+            width: 150px;
+            height: 150px;
+            background-color: #81d4fa;
+            text-align: center;
+            line-height: 150px;
+            margin: 30px auto;
+            border-radius: 0;
+            font-weight: bold;
+            color: #006064;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+        
+        .animate-box:hover {
+            border-radius: 75px;
+            color: white;
+            background-color: #0288d1;
+            transform: rotate(5deg) scale(1.1);
+        }
+        
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .concept-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid #00838f;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .concept-card h3 {
+            color: #006064;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .concept-card h3 i {
+            margin-right: 10px;
+            color: #7921a1;
+        }
+        
+        .back-to-nav {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50px;
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #00838f;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+            border: 2px solid #00838f;
+        }
+        
+        .back-to-nav:hover {
+            background: #00838f;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .phonetic {
+            background: #e0f7fa;
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 3px solid #00838f;
+        }
+        
+        .phonetic p {
+            margin: 5px 0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .category {
+                padding: 20px;
+            }
+            
+            .core-title {
+                font-size: 2.2rem;
+            }
+            
+            .core-container {
+                padding: 20px;
+            }
+            
+            .core-section {
+                padding: 20px 15px;
+            }
+            
+            .concept-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .date-time {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* CSS-02练习页面样式 */
+        #css-exercise-02-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(to bottom, #d1e8e2, #b9e0d3);
+            color: #2c3e50;
+            font-family: 'Noto Sans SC', sans-serif;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .exercise-02-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #27ae60;
+        }
+        
+        .exercise-02-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        
+        .exercise-02-title {
+            font-size: 2.5rem;
+            color: #27ae60;
+            margin-bottom: 10px;
+            font-family: KaiTi, serif;
+        }
+        
+        .exercise-02-content {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 15px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .exercise-02-content h2 {
+            font-family: "cooper", "楷体", sans-serif;
+            text-decoration: underline;
+            color: chocolate;
+            margin: 20px 0 15px;
+        }
+        
+        .exercise-02-content ul {
+            padding-left: 30px;
+            margin: 15px 0;
+        }
+        
+        .exercise-02-content li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .exercise-02-content .inline-style {
+            color: darkorchid;
+            font-weight: bold;
+        }
+        
+        /* CSS-03卡片特殊样式 */
+        .css-03 .link-icon {
+            background: linear-gradient(135deg, #a2d2ff, #bde0fe);
+            animation: pulseColor 3s infinite;
+        }
+        
+        @keyframes pulseColor {
+            0% { background: linear-gradient(135deg, #a2d2ff, #bde0fe); }
+            50% { background: linear-gradient(135deg, #ffafcc, #ffc8dd); }
+            100% { background: linear-gradient(135deg, #a2d2ff, #bde0fe); }
+        }
+    /* 定位演示页面样式 */
+    #position-demo-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #a6c0fe, #389bbc);
+            color: #333;
+            padding: 40px 20px;
+            font-family: 'Noto Sans SC', sans-serif;
+            position: relative;
+        }
+        
+        .position-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #aa42d0;
+        }
+        
+        .position-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #5f2a82;
+        }
+        
+        .position-title {
+            font-size: 2.5rem;
+            color: #4c1680;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        .position-subtitle {
+            font-size: 1.2rem;
+            color: #5a2a42;
+            opacity: 0.8;
+        }
+        
+        .position-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        
+        .position-section {
+            width: calc(33.33% - 20px);
+            background: #fff5f7;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(190, 90, 120, 0.15);
+            transition: all 0.3s ease;
+        }
+        
+        .position-section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(190, 90, 120, 0.25);
+        }
+        
+        .position-section h2 {
+            color: #8526ab;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(216, 27, 96, 0.2);
+            font-size: 1.6rem;
+        }
+        
+        .position-section p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            color: #5a2a42;
+        }
+        
+        .bg {
+            background-color: #fcc;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .relative {
+            position: relative;
+            top: 150px;
+            border: 2px dashed #6c138f;
+        }
+        
+        .absolute {
+            position: absolute;
+            top: 150px;
+            border: 2px dashed #0066cc;
+        }
+        
+        .position-code {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .position-code code {
+            display: block;
+            white-space: pre;
+        }
+        
+        @media (max-width: 900px) {
+            .position-section {
+                width: calc(50% - 15px);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .position-section {
+                width: 100%;
+            }
+        }
+        
+        /* JavaScript练习页面样式 */
+        #js-exercise-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            color: #333;
+            padding: 20px;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        
+        .js-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-left: 5px solid #4a0777;
+        }
+        
+        .js-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #ffd6e7;
+        }
+        
+        .js-title {
+            font-size: 2.5rem;
+            color: #1c0738;
+            margin-bottom: 10px;
+            font-weight: 700;
+            font-family: KaiTi, serif;
+        }
+        
+        .js-subtitle {
+            font-size: 1.2rem;
+            color: #5a2a42;
+            opacity: 0.8;
+        }
+        
+        .js-content {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fff5f7;
+            border-radius: 15px;
+            border-left: 4px solid #ff8fab;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        .code-block code {
+            display: block;
+            white-space: pre;
+        }
+        
+        .output-container {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #5f1790;
+        }
+        
+        .output-title {
+            font-weight: bold;
+            color: #27023d;
+            margin-bottom: 10px;
+        }
+        
+        .output-content {
+            font-family: monospace;
+            white-space: pre;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .run-button {
+            display: inline-block;
+            background: #af07af;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        
+        .run-button:hover {
+            background: #6329a5;
+            transform: translateY(-3px);
+        }
+
+        /* 新增研究页面样式 */
+        #internet-research-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            color: #333;
+            font-family: 'Noto Sans SC', sans-serif;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .research-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-left: 5px solid #4b86b4;
+        }
+        
+        .research-header {
+            background: linear-gradient(135deg, #1a2a6c, #2a4d69, #4b86b4);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        .research-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .authors {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .affiliation {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 15px;
+        }
+        
+        .research-date {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .research-content {
+            padding: 40px;
+        }
+        
+        .research-section {
+            margin-bottom: 50px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .research-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .research-section h2 {
+            color: #2a4d69;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #4b86b4;
+            font-size: 1.8rem;
+        }
+        
+        .research-section h3 {
+            color: #4b86b4;
+            margin: 25px 0 15px;
+            font-size: 1.4rem;
+        }
+        
+        .research-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, rgba(75, 134, 180, 0.1), rgba(75, 134, 180, 0.05));
+            padding: 20px;
+            border-left: 4px solid #4b86b4;
+            border-radius: 0 5px 5px 0;
+            margin: 20px 0;
+        }
+        
+        .research-framework {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .framework-item {
+            flex: 1;
+            min-width: 300px;
+            padding: 25px;
+            background: #eef7ff;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .framework-item h4 {
+            color: #1a2a6c;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        .framework-item p {
+            text-align: center;
+        }
+        
+        .research-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #2a4d69;
+        }
+        
+        .research-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-table th, .research-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .research-table th {
+            background-color: #2a4d69;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .research-table tr:nth-child(even) {
+            background-color: #f2f8ff;
+        }
+        
+        .research-table tr:hover {
+            background-color: #e6f0fa;
+        }
+        
+        .conclusion-box {
+            background: linear-gradient(135deg, #eef7ff, #d4e4f7);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .conclusion-box h3 {
+            color: #1a2a6c;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .policy-recommendations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .policy-card {
+            background: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #4b86b4;
+        }
+        
+        .policy-card h4 {
+            color: #2a4d69;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .research-footer {
+            text-align: center;
+            padding: 30px;
+            background: #2a4d69;
+            color: white;
+            font-size: 0.9rem;
+            border-radius: 0 0 10px 10px;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .research-header h1 {
+                font-size: 1.8rem;
+            }
+            .authors {
+                font-size: 1.1rem;
+            }
+            .research-content {
+                padding: 20px;
+            }
+            .research-section {
+                padding: 20px;
+            }
+            .research-framework {
+                flex-direction: column;
+            }
+        }
+
+        /* 新增异步编程页面样式 */
+        #async-demo-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #a8edea, #fed6e3);
+            color: #333;
+            font-family: 'Noto Sans SC', sans-serif;
+            padding: 20px;
+        }
+        
+        .async-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-left: 5px solid #4a69bd;
+        }
+        
+        .async-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #a8edea;
+        }
+        
+        .async-title {
+            font-size: 2.5rem;
+            color: #4a69bd;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .async-content {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border-left: 4px solid #4a69bd;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            margin: 15px 0;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        
+        .code-block code {
+            display: block;
+            white-space: pre;
+        }
+        
+        .output-container {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4a69bd;
+        }
+        
+        .output-title {
+            font-weight: bold;
+            color: #4a69bd;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .output-content {
+            font-family: monospace;
+            white-space: pre;
+            padding: 10px;
+            background: white;
+            border-radius: 5px;
+            min-height: 100px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-size: 0.9rem;
+        }
+        
+        .run-button {
+            display: inline-block;
+            background: #4a69bd;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+        
+        .run-button:hover {
+            background: #6a89cc;
+            transform: translateY(-3px);
+        }
+        
+        .explanation {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #1e88e5;
+        }
+        
+        .explanation h3 {
+            color: #1e88e5;
+            margin-top: 0;
+        }
+        
+        .concept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .concept-card {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-top: 3px solid #4a69bd;
+        }
+        
+        .concept-card h3 {
+            color: #4a69bd;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .concept-card h3 i {
+            margin-right: 10px;
+        }
+
+        /* 新增QAnything按钮样式 */
+        .qanything-float-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4b86b4, #1a2a6c);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.3s ease;
+        }
+        
+        .qanything-float-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .qanything-float-button img {
+            width: 70%;
+            height: 70%;
+        }
+        /* QAnything页面样式 */
+        #qanything-page {
+            display: none;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #4b6cb7, #182848);
+            color: #f0f0f0;
+            font-family: 'Noto Sans SC', sans-serif;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .qanything-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .qanything-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .qanything-title {
+            font-size: 2.8rem;
+            color: #64e3ff;
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(100, 227, 255, 0.7);
+        }
+        
+        .qanything-subtitle {
+            font-size: 1.2rem;
+            color: #a0d7ff;
+            opacity: 0.9;
+        }
+        
+        .qanything-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .qanything-feature {
+            background: rgba(30, 60, 120, 0.4);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border-left: 4px solid #64e3ff;
+        }
+        
+        .qanything-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .qanything-feature h3 {
+            color: #64e3ff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .qanything-feature i {
+            font-size: 1.8rem;
+        }
+        
+        .qanything-feature ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .qanything-feature li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .qanything-float-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4b86b4, #1a2a6c);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10000;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            animation: pulse 2s infinite;
+        }
+        
+        .qanything-float-button:hover {
+            transform: scale(1.15) rotate(10deg);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            animation: none;
+        }
+        
+        .qanything-float-button img {
+            width: 60%;
+            height: 60%;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); }
+            50% { transform: scale(1.1); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4); }
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .qanything-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .qanything-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航页面 -->
+    <div id="navigation-page" class="page-transition">
+        <div class="container">
+            <header>
+                <h1>课程练习导航-黄雪梅的作品集</h1>
+                <div class="subtitle">《web前端开发》</div>
+                <div class="date-time">
+                    <div id="current-date">2023年6月22日 星期日</div>
+                    <div id="current-time">14:48:45</div>
+                </div>
+            </header>
+            
+            <div class="nav-categories">
+                <div class="category">
+                    <h3><i class="fas fa-star"></i> CSS演示卡片</h3>
+                    <div class="links" style="grid-template-columns: repeat(4, 1fr);">
+                        <!-- 重新排序卡片，同时增大边框使整体看起来更大气 -->
+                        <a href="#" class="link-item css-01" id="show-css-exercise" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-sync-alt"></i></div>
+                            <div class="link-title">CSS-01</div>
+                        </a>
+                        
+                        <a href="#" class="link-item css-02" id="show-css-exercise-02" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-chart-pie"></i></div>
+                            <div class="link-title">CSS-02</div>
+                        </a>
+                        
+                        <a href="#" class="link-item css-03" id="show-css-core" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-paint-brush"></i></div>
+                            <div class="link-title">CSS-03</div>
+                        </a>
+                        
+                        <a href="#" class="link-item web-1" id="show-nanchang" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-globe"></i></div>
+                            <div class="link-title">网页展示1</div>
+                        </a>
+                        
+                        <a href="#" class="link-item web-2" id="show-forum" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-laptop-code"></i></div>
+                            <div class="link-title">网页展示2</div>
+                        </a>
+                        
+                        <a href="#" class="link-item css-04" id="show-position-demo" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-heartbeat"></i></div>
+                            <div class="link-title">CSS-04</div>
+                        </a>
+                        
+                        <a href="#" class="link-item css-05" id="show-js-exercise" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-shapes"></i></div>
+                            <div class="link-title">CSS-05</div>
+                        </a>
+                        
+                        <a href="#" class="link-item css-06" id="show-research-page" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-border-style"></i></div>
+                            <div class="link-title">CSS-06</div>
+                        </a>
+                        
+                        <a href="#" class="link-item css-07" id="show-async-demo" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-sync"></i></div>
+                            <div class="link-title">CSS-07</div>
+                        </a>
+                        
+                        <a href="#" class="link-item nested" id="show-qanything" style="border: 5px solid #7C38BC;">
+                            <div class="link-icon"><i class="fas fa-object-group"></i></div>
+                            <div class="link-title">嵌套演示</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <p>© 2025 《web前端开发》 | 课程练习导航</p>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- 南昌旅游页面 -->
+    <div id="nanchang-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="nanchang-container">
+            <header class="nanchang-header">
+                <div class="logo">
+                    <div class="logo-icon floating">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h1 class="nanchang-title">天 山 天 池 风 景 区</h1>
+                </div>
+                <p class="nanchang-subtitle">物 阜 民 康</p>
+                
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#intro"><i class="fas fa-home"></i> 阜康简介</a></li>
+                        <li><a href="#attractions"><i class="fas fa-mountain"></i> 景点推荐</a></li>
+                        <li><a href="#food"><i class="fas fa-utensils"></i> 特色美食</a></li>
+                        <li><a href="#tips"><i class="fas fa-info-circle"></i> 旅游贴士</a></li>
+                        <li><a href="#contact"><i class="fas fa-envelope"></i> 联系我们</a></li>
+                    </ul>
+                </nav>
+            </header>
+            
+            <section id="intro" class="intro">
+                <h2><i class="fas fa-city"></i> 国家5A级景区 - 阜康天山天池</h2>
+                <p><span class="highlight">阜 康</span>，昌吉回族自治州天山天池风景名胜区 [3],简称天山天池景区.是位于新疆维吾尔自治区昌吉回族自治州阜康市境内的旅游景区。风景区总面积为548平方千米,核心景区面积311.37平方千米。</p>
+                <p><span class="highlight">天山天池</span>,古称“瑶池”,湖面海拔1910米,南北长3.5公里,东西宽0.8~1.5公里,最深处105米。</p>
+                <p class="quote">山天池景区由天池景区、灯杆山景区、马牙山景区、博格达峰景区、白杨沟景区、花儿沟景区、水磨沟景区、北部梧桐沟沙漠景区组成,有15个景群,38个景点。是中国西北干旱地区典型的山岳型自然景观</p>
+                <p>山天池景区以其完整的垂直自然景观带为主要特征，以远古瑶池神话、民俗风情为文化内涵，是游览观光、科普考察、探险揽胜、休闲健身和民俗风情游游赏的人间天堂。</p>
+            </section>
+            
+            <h2 class="section-title" id="attractions">昌吉阜康必游景点</h2>
+            
+            <div class="attractions">
+                <div class="card">
+                    <div class="card-img">
+                        天山天池景点示意图
+                    </div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-torii-gate"></i> 博格达峰</h3>
+                        <p>博格达峰的巨大山体和海拔高度，有利于高山永久积雪和冰川的发育,形成了丰富的冰川资源。博格达峰区北坡现代冰川共有54条,面积4482公顷,总储水量21.7亿立方米。在保护区内,有冰川32条,面积1702公顷,储水量8.69亿立方米。</p>
+                        <p>📍 天池古称瑶池，唐太宗时曾在博格达峰下设立过“瑶池都护府”。</p>
+                        <p>🕒 开放时间:4月1日-10月31日 10:00-19:00:11月1日-次年3月31日 09:30-18:00</p>
+                        <a href="#" class="btn">了解更多</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        白杨沟景区
+                    </div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-monument"></i> 白杨沟景区</h3>
+                        <p>白杨沟,沟长20千米,面积约30平方千米,是天山北坡生物多样性的典型。天山特有的各种乔木、灌木及多种草本植物生长茂密,种类达200种以上。</p>
+                        <p>📍 地址：白杨沟景区位于三工河谷中段东侧</p>
+                        <p>🕒 开放时间:6月-7月:9:00-20:00</p>
+                        <a href="#" class="btn">了解更多</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        马牙山景区
+                    </div>
+                    <div class="card-content">
+                        <h3><i class="fas fa-mountain"></i> 马牙山景区</h3>
+                        <p>马牙山位于昌吉阜康市天山天池景区内，是环抱天池的十一座山峰之一。山体岩石多为白色石英片岩，远看犹如一排排巨大的马齿，因而得名。山上有石林，形态各异，是天池景区一道独特的自然景观。</p>
+                        <p>📍 地址：新疆维吾尔自治区昌吉回族自治州阜康市天山天池景区内</p>
+                        <p>🕒 开放时间：09:00 - 19:00（具体时间随季节调整）</p>
+                        <a href="#" class="btn">了解更多</a>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="food-section" id="food">
+                <h2 class="section-title">新疆特色美食</h2>
+                <p class="quote">"不尝新疆菜，枉来西域行"</p>
+                
+                <div class="food-grid">
+                    <div class="food-item">
+                        <div class="food-icon">
+                            <i class="fas fa-bread-slice"></i>
+                        </div>
+                        <h4>新疆馕饼</h4>
+                        <p>新疆传统主食，外皮金黄酥脆，内部松软，有芝麻、洋葱等多种口味，久储不坏，方便携带。</p>
+                    </div>
+                    
+                    <div class="food-item">
+                        <div class="food-icon">
+                            <i class="fas fa-drumstick-bite"></i>
+                        </div>
+                        <h4>手抓羊肉</h4>
+                        <p>选用新鲜羊肉，清水煮熟，搭配皮牙子（洋葱）、椒盐等食用，肉质鲜嫩，原汁原味。</p>
+                    </div>
+                    
+                    <div class="food-item">
+                        <div class="food-icon">
+                            <i class="fas fa-carrot"></i>
+                        </div>
+                        <h4>新疆抓饭</h4>
+                        <p>以大米、羊肉、胡萝卜、葡萄干等为原料焖制而成，营养丰富，香气四溢。</p>
+                    </div>
+                    
+                    <div class="food-item">
+                        <div class="food-icon">
+                            <i class="fas fa-ice-cream"></i>
+                        </div>
+                        <h4>酸奶疙瘩</h4>
+                        <p>用酸奶制成的奶制品，富含蛋白质，酸甜可口，有浓郁的奶香味，是新疆特色零食。</p>
+                    </div>
+                </div>
+            </section>
+            
+            <h2 class="section-title" id="tips">旅游实用信息</h2>
+            
+            <div class="travel-tips">
+                <div class="tip-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>最佳旅游时间</h3>
+                    <p>5 - 10月是昌吉阜康市的最佳旅游季节。春季可赏山花烂漫，夏季可避暑纳凉，秋季能观五彩山林，冬季可体验冰雪乐趣。</p>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-plane"></i>
+                    <h3>交通指南</h3>
+                    <p>前往阜康市交通便利：<br>
+                    - 乌鲁木齐地窝堡国际机场距离较近，可转乘班车前往<br>
+                    - 阜康市有汽车站，可乘坐班车前往景区<br>
+                    - 自驾可沿吐乌大高速行驶，在天池出口下高速</p>
+                </div>
+                
+                <div class="tip-card">
+                    <i class="fas fa-hotel"></i>
+                    <h3>住宿推荐</h3>
+                    <p>建议选择以下区域：<br>
+                    - 阜康市区：配套设施完善，交通和购物方便<br>
+                    - 天池景区附近：方便早起观赏天池美景<br>
+                    - 哈萨克族牧家乐：体验少数民族特色住宿</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="nanchang-footer" id="contact">
+            <div class="nanchang-container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <i class="fas fa-landmark"></i>
+                    </div>
+                    <h3>新疆阜康欢迎您！</h3>
+                    <p>感受天山魅力，体验西域独特风情</p>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-qq"></i></a>
+                        <a href="#"><i class="fas fa-envelope"></i></a>
+                    </div>
+                    
+                    <p class="copyright">© 2023 昌吉州文化体育广播电视和旅游局 | 阜康市旅游推广中心</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <!-- CSS练习页面 -->
+    <div id="css-exercise-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-css">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="exercise-container">
+            <header class="exercise-header">
+                <h1 class="exercise-title">CSS练习</h1>
+            </header>
+            
+            <div class="exercise-content">
+                <!-- 嵌入的CSS练习内容 -->
+                <h1 style="color: darkblue">CSS练习</h1>
+                <h2 id="CSSbase">CSS语法基础</h2>
+                <p class="abstract" style="color: black">
+                  2025年6月27日正在写作业
+                </p>
+                <p>
+                  我写作业写得脑壳痛，于是我决定不写了哈哈哈
+                </p>
+                <h2>选择符</h2>
+                <p>
+                  这是一个段落，段落中包<a href="https://yangzh.cn">含了一个这是一个段落</a>，段落中包含了一个这是一个段落，段落中包含了一个<a href="https://www.sanguo.com">这是一个段落</a>，段落中包含了一个
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CSS-02练习页面 -->
+    <div id="css-exercise-02-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-css-02">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="exercise-02-container">
+            <header class="exercise-02-header">
+                <h1 class="exercise-02-title">CSS样式表练习</h1>
+                <p>CSS样式表的三种使用方式</p>
+            </header>
+            
+            <div class="exercise-02-content">
+                <h1>CSS练习</h1>
+                <div>
+                    <h2>使用样式表的三种方式</h2>
+                    <ul>
+                        <li>外部样式表</li>
+                        <li>内部样式表</li>
+                        <li style="color: darkorchid">内嵌样式表</li>
+                    </ul>
+                </div>
+                
+                <div class="explanation">
+                    <h2>样式表使用说明</h2>
+                    <p>在CSS中，有三种主要方式可以应用样式到HTML元素：</p>
+                    
+                    <h3>1. 外部样式表</h3>
+                    <p>通过&lt;link&gt;标签引入外部CSS文件：</p>
+                    <pre>&lt;link rel="stylesheet" href="styles/main.css"&gt;</pre>
+                    <p>这是最常用的方式，适合大型项目，可以实现样式复用。</p>
+                    
+                    <h3>2. 内部样式表</h3>
+                    <p>在HTML文档的&lt;head&gt;部分使用&lt;style&gt;标签定义样式：</p>
+                    <pre>
+&lt;style&gt;
+    h2 {
+        font-family: "cooper", "楷体";
+        text-decoration: underline;
+        color: chocolate;
+    }
+&lt;/style&gt;</pre>
+                    <p>这种方式适合单个页面有特定样式需求的情况。</p>
+                    
+                    <h3>3. 内嵌样式表</h3>
+                    <p>直接在HTML元素的style属性中定义样式：</p>
+                    <pre>&lt;li style="color: darkorchid"&gt;内嵌样式表&lt;/li&gt;</pre>
+                    <p>这种方式优先级最高，但不利于维护，应谨慎使用。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 三界论坛页面 -->
+    <div id="forum-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-forum">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="forum-container">
+            <div class="cultivation-symbol">
+                <i class="fas fa-yin-yang"></i>
+            </div>
+            <div class="floating-symbol">
+                <i class="fas fa-dragon"></i>
+            </div>
+            
+            <header class="forum-header">
+                <h1 class="forum-title">流浪地球2论坛</h1>
+                <p class="forum-subtitle">全球联合政府 · 数字生命派 · 太空军 - 热议交流平台</p>
+            </header>
+            
+            <div class="forum-content">
+                <div class="forum-section">
+                    <h2><i class="fas fa-exclamation-triangle"></i> 联合政府预警中心温馨提醒您：</h2>
+                    <p class="abstract">
+                        抵制数字生命计划，请尊重每一个真实生命，不要让人类文明走向歧途，好吗？
+                    </p>
+                    <div class="divider">————————数字生命相关讨论区已关闭————————</div>
+                </div>
+                
+                <div class="forum-section">
+                    <h2><i class="fas fa-space-shuttle"></i> 太空军指挥中心温馨提示：</h2>
+                    <p class="abstract">
+                        加入太空军的目的是为了拯救地球，而不是为了逃避当下的危机。
+                    </p>
+                    
+                    <div class="forum-posts">
+                        <div class="post">
+                            <div class="post-header">
+                                <div class="user-icon">
+                                    <i class="fas fa-user-secret"></i>
+                                </div>
+                                <div class="post-author">匿名市民</div>
+                            </div>
+                            <div class="post-content">
+                                可是……数字生命计划好像真的能给人类文明留条后路啊<span class="post-emotion">🤔</span>
+                            </div>
+                        </div>
+                        
+                        <div class="post">
+                            <div class="post-header">
+                                <div class="user-icon">
+                                    <i class="fas fa-heart-broken"></i>
+                                </div>
+                                <div class="post-author">数字生命派成员</div>
+                            </div>
+                            <div class="post-content">
+                                不追求数字生命延续意识，你和那些只知道埋头推发动机的莽夫有什么区别
+                            </div>
+                        </div>
+                        
+                        <div class="post">
+                            <div class="post-header">
+                                <div class="user-icon">
+                                    <i class="fas fa-flag"></i>
+                                </div>
+                                <div class="post-author">太空军指挥官</div>
+                            </div>
+                            <div class="post-content">
+                                拯救地球还是得靠太空军，跟着我们才有希望活下去。
+                            </div>
+                        </div>
+                        
+                        <div class="post">
+                            <div class="post-header">
+                                <div class="user-icon">
+                                    <i class="fas fa-laptop-code"></i>
+                                </div>
+                                <div class="post-author">科学家研究员</div>
+                            </div>
+                            <div class="post-content">
+                                楼上指挥官别自吹自擂了，数字生命和流浪地球计划都有意义，得综合考量。
+                            </div>
+                        </div>
+                        
+                        <div class="post">
+                            <div class="post-header">
+                                <div class="user-icon">
+                                    <i class="fas fa-box-open"></i>
+                                </div>
+                                <div class="post-author">硬件供应商</div>
+                            </div>
+                            <div class="post-content">
+                                蹲前排售卖量子计算机配件，买三送一，助力行星发动机和数字生命研究，机会难得！
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CSS核心概念页面 -->
+    <div id="css-core-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-core">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="core-container">
+            <header class="core-header">
+                <h1 class="core-title">CSS 核心概念</h1>
+                <p>背景、盒模型、布局、动画</p>
+            </header>
+            
+            <section class="core-section">
+                <h2><i class="fas fa-image"></i> 背景</h2>
+                
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h3><i class="fas fa-palette"></i> 背景属性</h3>
+                        <p>CSS背景属性用于定义元素的背景效果，包括背景颜色、背景图片、背景定位等。</p>
+                        <p>常用属性：background-color, background-image, background-repeat, background-position, background-size</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3><i class="fas fa-cogs"></i> 背景渐变</h3>
+                        <p>使用linear-gradient()和radial-gradient()可以创建平滑的颜色过渡效果。</p>
+                        <p>例如：<br>background: linear-gradient(to right, #ff9a9e, #fad0c4);</p>
+                    </div>
+                </div>
+                
+                <div class="phonetic">
+                    <p><strong>CSS术语发音：</strong></p>
+                    <p><strong>"cascading"</strong> - 音标: /kæˈskeɪdɪŋ/</p>
+                    <p><strong>"linear"</strong> - 英 [ˈlɪniə(r)] 美 [ˈlɪniər]</p>
+                </div>
+            </section>
+            
+            <section class="core-section">
+                <h2><i class="fas fa-box-open"></i> 盒模型</h2>
+                
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h3><i class="fas fa-border-all"></i> 盒模型概念</h3>
+                        <p>每个HTML元素都可以看作一个盒子，包括内容(content)、内边距(padding)、边框(border)和外边距(margin)。</p>
+                        <p>盒模型决定了元素在页面中占据的空间大小和与其他元素的间距。</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3><i class="fas fa-ruler-combined"></i> 盒模型属性</h3>
+                        <p>关键属性：width, height, padding, border, margin, box-sizing</p>
+                        <p>box-sizing: border-box 可以更直观地控制元素尺寸（包含边框和内边距）</p>
+                    </div>
+                </div>
+                
+                <div class="box">盒子模型示例</div>
+                <div class="box">内容区域 + padding + border + margin</div>
+            </section>
+            
+            <section class="core-section">
+                <h2><i class="fas fa-th"></i> 布局</h2>
+                
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h3><i class="fas fa-layer-group"></i> Display 属性</h3>
+                        <p>display属性定义元素的显示类型：</p>
+                        <ul>
+                            <li>block - 块级元素（占据整行）</li>
+                            <li>inline - 行内元素（不换行）</li>
+                            <li>inline-block - 行内块元素</li>
+                            <li>none - 隐藏元素</li>
+                            <li>flex - 弹性布局</li>
+                            <li>grid - 网格布局</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3><i class="fas fa-boxes"></i> Flexbox 布局</h3>
+                        <p>Flexbox是一种一维布局模型，提供了强大的空间分配和对齐能力。</p>
+                        <p>关键属性：display: flex, flex-direction, justify-content, align-items, flex-wrap</p>
+                    </div>
+                </div>
+                
+                <h3>display 的不同取值</h3>
+                <div class="display-demo">
+                    <p>段1</p>
+                    <p>段2</p>
+                    <p>段3</p>
+                    <p style="display: none">段4（隐藏）</p>
+                </div>
+                
+                <h3>Flexbox 布局示例</h3>
+                <div class="flex-container">
+                    <p>Flex项目1</p>
+                    <p>Flex项目2</p>
+                    <p>Flex项目3</p>
+                    <p>Flex项目4</p>
+                </div>
+            </section>
+            
+            <section class="core-section">
+                <h2><i class="fas fa-film"></i> 动画</h2>
+                
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h3><i class="fas fa-play-circle"></i> 动画基础</h3>
+                        <p>CSS动画需要定义：</p>
+                        <ul>
+                            <li>起始状态</li>
+                            <li>结束状态</li>
+                            <li>动画时长</li>
+                            <li>过渡效果</li>
+                        </ul>
+                        <p>通过transition属性实现简单动画，@keyframes实现复杂动画序列。</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3><i class="fas fa-sliders-h"></i> 动画属性</h3>
+                        <p>关键属性：</p>
+                        <ul>
+                            <li>transition - 定义状态变化过渡</li>
+                            <li>animation - 应用关键帧动画</li>
+                            <li>transform - 实现旋转、缩放等变换</li>
+                            <li>@keyframes - 定义动画序列</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <p>将鼠标悬停在下方盒子上查看动画效果：</p>
+                <div class="animate-box">悬停查看动画</div>
+            </section>
+        </div>
+    </div>
+
+    <!-- 定位演示页面 -->
+    <div id="position-demo-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-position">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="position-container">
+            <header class="position-header">
+                <h1 class="position-title">相对定位与绝对定位</h1>
+                <p class="position-subtitle">深入理解CSS定位机制</p>
+            </header>
+            
+            <div class="position-content">
+                <div class="position-section">
+                    <h2>正常信息流</h2>
+                    <p>学生，你真是活力满满，一下课就坐在操场边，摆弄着刚摘下的小花。</p>
+                    <p>我笑着看你在那里开心地摆弄那朵小花。</p>
+                    <p class="bg">我正忙着备课，一项一项地梳理教学内容。</p>
+                    <p>
+                        也许你在看我，心想："这么无聊的工作，竟把你的课间好时光都浪费掉了！"
+                    </p>
+                    <p>学生，我好像忘了毫无顾忌玩耍小花和发呆的乐趣了。</p>
+                </div>
+                
+                <div class="position-section">
+                    <h2>相对定位</h2>
+                    <p>学生，你真是活力满满，一下课就坐在操场边，摆弄着刚摘下的小花。</p>
+                    <p>我笑着看你在那里开心地摆弄那朵小花。</p>
+                    <p class="bg relative">我正忙着备课，一项一项地梳理教学内容。</p>
+                    <p>
+                        也许你在看我，心想："这么无聊的工作，竟把你的课间好时光都浪费掉了！"
+                    </p>
+                    <p>学生，我好像忘了毫无顾忌玩耍小花和发呆的乐趣了。</p>
+                    
+                    <div class="position-code">
+                        <code>.relative { 
+  position: relative;
+  top: 150px;
+}</code>
+                    </div>
+                </div>
+                
+                <div class="position-section">
+                    <h2>绝对定位</h2>
+                    <p>学生，你真是活力满满，一下课就坐在操场边，摆弄着刚摘下的小花。</p>
+                    <p>我笑着看你在那里开心地摆弄那朵小花。</p>
+                    <p class="bg absolute">我正忙着备课，一项一项地梳理教学内容。</p>
+                    <p>
+                        也许你在看我，心想："这么无聊的工作，竟把你的课间好时光都浪费掉了！"
+                    </p>
+                    <p>学生，我好像忘了毫无顾忌玩耍小花和发呆的乐趣了。</p>
+                    
+                    <div class="position-code">
+                        <code>.absolute { 
+  position: absolute;
+  top: 150px;
+}</code>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="position-summary">
+                <h3>定位机制总结</h3>
+                <p><strong>相对定位</strong>：元素相对于其正常位置进行定位，不影响其他元素布局。</p>
+                <p><strong>绝对定位</strong>：元素脱离正常文档流，相对于最近的非static定位祖先元素定位。</p>
+                <p><strong>固定定位</strong>：元素相对于视口定位，即使页面滚动也不会移动。</p>
+                <p><strong>粘性定位</strong>：在特定阈值内表现为相对定位，超过阈值后变为固定定位。</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript练习页面 -->
+    <div id="js-exercise-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-js">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="js-container">
+            <header class="js-header">
+                <h1 class="js-title">JavaScript基础练习</h1>
+                <p class="js-subtitle">变量、分支、循环和函数</p>
+            </header>
+            
+            <div class="js-content">
+                <h2>JavaScript基础代码</h2>
+                <p>下面的代码演示了JavaScript的基本语法，包括变量声明、分支语句、循环和函数定义。</p>
+                
+                <div class="code-block">
+                    <code>let a = 100
+//alert(a)
+console.log(a)
+const api_key = 'ssssx-=-dddd'
+console.log(api_key)
+console.log(typeof a, typeof api_key, typeof true)
+
+let b = '1'
+console.log(a + b)
+console.log(a + Number(b))
+
+let c = '100'
+console.log(a == c)
+console.log(a === c)
+
+// 分支语句
+let current_time = '12:20'
+if (current_time == '12:20') {
+    console.log('冲啊！')
+} else {
+    console.log('假装学习……')
+}
+
+// for循环
+for (let i = 1; i <= 10; i++) {
+    console.log(i)
+}
+
+// while循环
+let hug = 60
+while (hug > 0) {
+    console.log('继续干饭……')
+    hug = hug - 10
+}
+
+// 函数
+function intro() {
+    console.log('你好，我是一个脚本！')
+}
+intro()
+
+function intro(content) {
+    console.log('以下是我介绍的内容：' + String(content))
+}</code>
+                </div>
+                
+                <button class="run-button" id="run-js-code">
+                    <i class="fas fa-play"></i> 运行代码
+                </button>
+                
+                <div class="output-container">
+                    <div class="output-title">
+                        <i class="fas fa-terminal"></i> 控制台输出
+                    </div>
+                    <div class="output-content" id="js-output">
+                        // 点击"运行代码"按钮查看输出结果
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- 新增：互联网研究页面 -->
+     <div id="internet-research-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-research">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="research-container">
+            <header class="research-header">
+                <div class="research-date">2019年8月</div>
+                <h1>互联网发展与制造业生产率提升：内在机制与中国经验</h1>
+                <div class="authors">黄群慧，余泳泽，张松林</div>
+                <div class="affiliation">中国社会科学院经济研究所，南京财经大学国际经贸学院，绍兴文理学院商学院</div>
+            </header>
+            
+            <div class="research-content">
+                <section class="research-section" id="introduction">
+                    <h2>一、引言</h2>
+                    <p>步入21世纪，信息技术全面融入人们生活，同时也深刻影响着产业变革。新产业、新业态、新模式不断涌现，推动了新一轮科技革命和产业变革。以互联网技术为代表的新一代信息技术，是世界经济第五次康德拉季耶夫周期的重要标志，正全方位渗透到经济、社会和生活领域。</p>
+                    
+                    <div class="highlight">
+                        <p>中国处于工业化后期，已进入经济增速趋缓、结构优化、动能转换的新常态。在此背景下，互联网发展被赋予成为经济增长新动能的重任。积极推进“互联网+”战略，是供给侧结构性改革的重要举措，有助于推动制造业转型升级。</p>
+                    </div>
+                    
+                    <p>互联网技术与经济发展深度融合的现象，需要理论层面的阐释；政府推动互联网发展的政策，也需要学术研究提供支撑。学术界认为，互联网技术对经济活动中的生产、交换和消费的影响，主要体现在以下三个方面：</p>
+                    <ul>
+                        <li>互联网技术彻底改变了商品交换方式，拓展了商品交换的地域和空间范围</li>
+                        <li>互联网技术引发了生产方式和企业组织方式的变革</li>
+                        <li>互联网技术改变了消费结构，推动了个性化消费的发展</li>
+                    </ul>
+                </section>
+                
+                <section class="research-section" id="research-framework">
+                    <h2>二、研究框架与方法</h2>
+                    <p>本文聚焦于互联网对制造业效率的影响，主要贡献体现在以下三个方面：</p>
+                    
+                    <div class="research-framework">
+                        <div class="framework-item">
+                            <div class="research-icon">📊</div>
+                            <h4>理论模型构建</h4>
+                            <p>基于超边际与一般均衡分析的新兴古典经济学模型框架，构建了互联网发展影响制造业效率的理论模型，进而揭示互联网提升制造业效率的内在机制。</p>
+                        </div>
+                        
+                        <div class="framework-item">
+                            <div class="research-icon">🔍</div>
+                            <h4>实证检验设计</h4>
+                            <p>利用可得数据构建综合性的城市互联网发展指数，选取历史数据作为工具变量，在克服内生性问题的基础上，从城市、行业和企业三个维度全面检验互联网发展对制造业效率的影响程度。</p>
+                        </div>
+                        
+                        <div class="framework-item">
+                            <div class="research-icon">⚙️</div>
+                            <h4>传导路径分析</h4>
+                            <p>通过理论分析和实证检验，探究互联网发展提升制造业效率的传导路径，弥补了该领域在机制检验方面的研究不足。</p>
+                        </div>
+                    </div>
+                    
+                    <h3>既有研究的不足</h3>
+                    <p>总体来看，既有文献从宏观、产业和企业三个维度对互联网对经济活动的影响展开了研究，但仍存在一些局限：</p>
+                    <ul>
+                        <li>多数研究停留在理论分析和现实总结阶段，缺乏足够的理论模型和实证检验</li>
+                        <li>部分实证研究对内生性问题关注不够</li>
+                        <li>目前较少有研究从宏观、产业和企业三个维度进行系统性分析</li>
+                    </ul>
+                </section>
+                
+                <section class="research-section" id="theoretical-model">
+                    <h2>三、理论模型</h2>
+                    <h3>基本模型设定</h3>
+                    <p>假设所有经济主体兼具生产者和消费者的双重身份，经济系统中有两种制造产品x和y可供经济主体生产和消费，每个经济主体都需要消费这两种产品。</p>
+                    
+                    <p>x和y的生产过程包含制造环节和互联网交易环节。制造环节负责生产产品，互联网交易环节则用于销售产品，其作用是降低产品市场交易过程中的信息不对称程度，从而减少单位交易成本，提高交易效率。</p>
+                    
+                    <div class="highlight">
+                        <p>生产函数设定如下：</p>
+                        <p>\[x + x' = L_x^a\]</p>
+                        <p>\[y + y' = L_y^a\]</p>
+                        <p>\[I + I' = L_I^b\]</p>
+                        <p>其中，a和b（a > 1，b > 1）分别表示制造产品和互联网服务在生产过程中的专业化程度参数。</p>
+                    </div>
+                    
+                    <h3>分工结构演进</h3>
+                    <p>通过模型求解，得出三种分工结构：</p>
+                    <table class="research-table">
+                        <tr>
+                            <th>结构类型</th>
+                            <th>特征</th>
+                            <th>生产率水平</th>
+                        </tr>
+                        <tr>
+                            <td>结构A：自给自足</td>
+                            <td>无市场交易，无互联网服务</td>
+                            <td>基础水平</td>
+                        </tr>
+                        <tr>
+                            <td>结构B：部分分工</td>
+                            <td>存在两类经济主体，自给自足互联网服务</td>
+                            <td>中等水平</td>
+                        </tr>
+                        <tr>
+                            <td>结构C：完全分工</td>
+                            <td>三类专业化主体，互联网服务专业化</td>
+                            <td>最高水平</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>核心机制分析</h3>
+                    <p>通过比较不同分工结构下的制造业生产率，得出以下推论：</p>
+                    
+                    <div class="highlight">
+                        <p><strong>推论1：</strong>互联网服务的专业化生产为制造业生产者提供了购买便利，使其无需自行开展互联网交易活动，进而提高了其在制造业生产环节的专业化水平，提升了自身的制造业生产率。</p>
+                    </div>
+                    
+                    <div class="highlight">
+                        <p><strong>推论2：</strong>互联网服务的发展能够降低产品市场中的信息不对称程度，从而降低单位交易成本，促进制造业分工，最终提高制造业生产率。</p>
+                    </div>
+                </section>
+                
+                <section class="research-section" id="empirical-analysis">
+                    <h2>四、实证分析</h2>
+                    <h3>研究设计与变量设置</h3>
+                    <p>设定基本检验模型如下：</p>
+                    <p>\[TFP = \alpha_0 + \alpha_i \text{internet} + \alpha_Z + \mu_z + \delta_z + e_z\]</p>
+                    
+                    <p>主要变量如下：</p>
+                    <table class="research-table">
+                        <tr>
+                            <th>变量类型</th>
+                            <th>变量符号</th>
+                            <th>变量名称</th>
+                            <th>度量方法</th>
+                        </tr>
+                        <tr>
+                            <td>因变量</td>
+                            <td>TFP1</td>
+                            <td>城市整体全要素生产率</td>
+                            <td>SFA方法</td>
+                        </tr>
+                        <tr>
+                            <td>因变量</td>
+                            <td>TFP2</td>
+                            <td>制造业整体全要素生产率</td>
+                            <td>SFA方法</td>
+                        </tr>
+                        <tr>
+                            <td>因变量</td>
+                            <td>TFP3</td>
+                            <td>制造业企业全要素生产率</td>
+                            <td>OP方法</td>
+                        </tr>
+                        <tr>
+                            <td>核心变量</td>
+                            <td>internet</td>
+                            <td>互联网发展</td>
+                            <td>主成分分析法</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>内生性问题处理</h3>
+                    <p>为解决内生性问题，本文选取各城市1984年每百人固定电话数量和每百万人邮局数量作为地区互联网发展指数的工具变量。</p>
+                    
+                    <h3>主要实证结果</h3>
+                    <table class="research-table">
+                        <tr>
+                            <th>影响维度</th>
+                            <th>回归系数</th>
+                            <th>显著性水平</th>
+                            <th>经济意义</th>
+                        </tr>
+                        <tr>
+                            <td>城市整体TFP</td>
+                            <td>7.1764</td>
+                            <td>1%显著</td>
+                            <td>互联网显著促进城市整体生产率提升</td>
+                        </tr>
+                        <tr>
+                            <td>制造业整体TFP</td>
+                            <td>37.2015</td>
+                            <td>5%显著</td>
+                            <td>对制造业生产率的影响大于对城市整体生产率的影响</td>
+                        </tr>
+                        <tr>
+                            <td>制造业企业TFP</td>
+                            <td>0.3021</td>
+                            <td>1%显著</td>
+                            <td>城市互联网指数每提高1%，企业生产率提高0.3%</td>
+                        </tr>
+                    </table>
+                    
+                    <h3>内在机制检验</h3>
+                    <p>实证检验了互联网发展提升制造业效率的三条传导路径：</p>
+                    <table class="research-table">
+                        <tr>
+                            <th>机制</th>
+                            <th>代理变量</th>
+                            <th>影响方向</th>
+                            <th>显著性</th>
+                        </tr>
+                        <tr>
+                            <td>降低交易成本</td>
+                            <td>管理费用率、销售费用率</td>
+                            <td>负向影响</td>
+                            <td>显著</td>
+                        </tr>
+                        <tr>
+                            <td>减少资源错配</td>
+                            <td>资源配置效率</td>
+                            <td>正向影响</td>
+                            <td>显著</td>
+                        </tr>
+                        <tr>
+                            <td>促进创新</td>
+                            <td>人均研发经费、人均专利授权量</td>
+                            <td>正向影响</td>
+                            <td>显著</td>
+                        </tr>
+                    </table>
+                </section>
+                
+                <section class="research-section" id="conclusions">
+                    <h2>五、结论与政策建议</h2>
+                    <div class="conclusion-box">
+                        <h3>主要研究结论</h3>
+                        <p>1. 互联网技术发展显著促进了城市整体和制造业整体生产率提升，且对制造业整体生产率的促进作用大于对城市整体生产率的促进作用。</p>
+                        <p>2. 互联网技术发展显著提高了制造业企业生产率。城市互联网发展指数每提高1%，制造业企业的生产率会提高0.3021%。</p>
+                        <p>3. 内在机制检验结果表明，互联网技术发展通过降低交易成本、减少资源错配以及促进创新等途径提升了制造业生产率。</p>
+                    </div>
+                    
+                    <h3>政策建议</h3>
+                    <div class="policy-recommendations">
+                        <div class="policy-card">
+                            <h4>发展互联网技术与基础设施</h4>
+                            <p>从硬件和软件两方面推动互联网技术发展，尤其要加强5G技术的推广和应用。硬件方面，加快实施“宽带中国”战略，提升北斗卫星全球服务能力，推进云计算工程建设。软件方面，加强企业和高校互联网应用人才的培训。</p>
+                        </div>
+                        
+                        <div class="policy-card">
+                            <h4>促进互联网与制造业分工协作</h4>
+                            <p>搭建互联网企业和制造业企业的交流平台，制定双方交易的制度体系，提高交易效率。出台优惠政策，推动互联网企业专业化发展，满足制造业在“互联网+”方面的需求。</p>
+                        </div>
+                        
+                        <div class="policy-card">
+                            <h4>深化互联网与制造业融合</h4>
+                            <p>全面推进并持续深化“互联网+”与制造业的融合，打破企业边界，以互联网为载体重塑制造业创新体系。推动制造业企业与互联网企业深度合作，发挥互联网在降低制造业单位交易成本方面的重要作用。</p>
+                        </div>
+                        
+                        <div class="policy-card">
+                            <h4>构建统一标准与协同机制</h4>
+                            <p>以信息化和工业化深度融合为核心，拓展互联网企业服务制造业企业的广度和深度。改革行业管理体制，统一工业互联网建设标准，减少“互联网+制造业”发展过程中的技术摩擦。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            
+            <footer class="research-footer">
+                <p>© 2019 中国工业经济 | 本研究得到国家社会科学基金重大项目支持</p>
+                <p>通讯作者：张松林 | 电子邮箱：zhshwxm300@126.com</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- 新增：异步编程练习页面 -->
+    <div id="async-demo-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-async">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="async-container">
+            <header class="async-header">
+                <h1 class="async-title">JavaScript 异步编程练习</h1>
+                <p>async/await, Promise, fetch API 实践</p>
+            </header>
+            
+            <div class="async-content">
+                <h2>异步编程概念</h2>
+                
+                <div class="concept-grid">
+                    <div class="concept-card">
+                        <h3><i class="fas fa-sync-alt"></i> 异步编程</h3>
+                        <p>JavaScript 是单线程语言，异步编程允许执行长时间任务而不阻塞主线程。</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3><i class="fas fa-code"></i> async/await</h3>
+                        <p>async 函数返回一个 Promise，await 用于等待 Promise 的解决或拒绝。</p>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3><i class="fas fa-cloud-download-alt"></i> fetch API</h3>
+                        <p>现代浏览器提供的用于网络请求的 API，替代传统的 XMLHttpRequest。</p>
+                    </div>
+                </div>
+                
+                <div class="explanation">
+                    <h3>异步编程的重要性</h3>
+                    <p>在 JavaScript 中，处理网络请求、文件读取等 I/O 操作时，使用异步编程可以避免阻塞主线程，保持用户界面的响应性。</p>
+                </div>
+                
+                <h2>异步函数示例</h2>
+                
+                <div class="code-block">
+                    <code>// 异步函数示例
+async function getSomething() {
+    // 使用setTimeout模拟异步操作
+    return new Promise(resolve => {
+        setTimeout(() => {
+            console.log('111111');
+            resolve('操作完成');
+        }, 2000);
+    });
+}
+
+// 调用异步函数
+getSomething()
+    .then(result => {
+        console.log('Async function finished successfully with result:', result);
+    })
+    .catch(error => {
+        console.error('Async function error:', error);
+    });
+
+console.log('2222222');</code>
+                </div>
+                
+                <button class="run-button" id="run-async-code">
+                    <i class="fas fa-play"></i> 运行异步函数
+                </button>
+                
+                <div class="output-container">
+                    <div class="output-title">
+                        <i class="fas fa-terminal"></i> 控制台输出
+                    </div>
+                    <div class="output-content" id="async-output">
+                        // 点击"运行异步函数"按钮查看输出结果
+                    </div>
+                </div>
+                
+                <h2>GitHub API 请求示例</h2>
+                
+                <div class="code-block">
+                    <code>// 获取GitHub仓库最后推送日期
+async function getLastPushedDate(owner, repo) {
+    const url = `https://api.github.com/repos/${owner}/${repo}`;
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('网络响应失败');
+        }
+        const data = await response.json();
+        // pushed_at 字段即为最后一次推送日期
+        return data.pushed_at;
+    } catch (error) {
+        console.error('获取推送日期失败:', error);
+        return null;
+    }
+}
+
+// 示例调用
+getLastPushedDate('yangjh-xbmu', 'Web-develop')
+    .then(date => {
+        console.log('最后一次推送日期:', date);
+        document.getElementById('repo-info').innerText = '最后一次推送日期: ' + date;
+    });</code>
+                </div>
+                
+                <button class="run-button" id="run-github-api">
+                    <i class="fab fa-github"></i> 获取GitHub仓库信息
+                </button>
+                
+                <div class="output-container">
+                    <div class="output-title">
+                        <i class="fas fa-info-circle"></i> GitHub仓库信息
+                    </div>
+                    <div class="output-content" id="repo-info">
+                        // 点击"获取GitHub仓库信息"按钮查看结果
+                    </div>
+                </div>
+                
+                <div class="explanation">
+                    <h3>fetch API 使用说明</h3>
+                    <p>fetch() 方法返回一个 Promise 对象，该对象在 HTTP 响应到达时解析为一个 Response 对象。</p>
+                    <p>重要步骤：</p>
+                    <ol>
+                        <li>使用 fetch() 发起网络请求</li>
+                        <li>检查响应状态 (response.ok)</li>
+                        <li>使用 response.json() 解析 JSON 数据</li>
+                        <li>处理解析后的数据</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- 新增：QAnything 页面 -->
+     <div id="qanything-page" class="page-transition">
+        <a href="javascript:void(0);" class="back-to-nav" id="back-to-nav-qanything">
+            <i class="fas fa-arrow-left"></i> 返回导航
+        </a>
+        
+        <div class="qanything-container">
+            <header class="qanything-header">
+                <h1 class="qanything-title">嵌套展示</h1>
+                <p class="qanything-subtitle">QAnything - 智能问答助手</p>
+            </header>
+            
+            <div class="qanything-content">
+                <div class="qanything-feature">
+                    <h3><i class="fas fa-comments"></i> 核心功能</h3>
+                    <ul>
+                        <li>多文档格式支持：PDF、Word、PPT、Excel、TXT等</li>
+                        <li>多语言问答：支持中英文混合问答</li>
+                        <li>精准定位：答案定位到原文位置并高亮显示</li>
+                        <li>多轮对话：支持上下文理解和多轮对话</li>
+                        <li>知识库管理：支持本地和云端知识库管理</li>
+                    </ul>
+                </div>
+                
+                <div class="qanything-feature">
+                    <h3><i class="fas fa-lightbulb"></i> 应用场景</h3>
+                    <ul>
+                        <li>企业内部知识库问答系统</li>
+                        <li>学术文献智能检索与分析</li>
+                        <li>法律合同条款快速定位</li>
+                        <li>金融报告数据提取与解读</li>
+                        <li>教育学习辅助工具</li>
+                    </ul>
+                </div>
+                
+                <div class="qanything-feature">
+                    <h3><i class="fas fa-cogs"></i> 技术架构</h3>
+                    <ul>
+                        <li>基于大语言模型（LLM）的问答引擎</li>
+                        <li>多模态文档解析技术</li>
+                        <li>语义向量检索系统</li>
+                        <li>知识图谱构建技术</li>
+                        <li>多轮对话状态跟踪</li>
+                    </ul>
+                </div>
+                
+                <div class="qanything-feature">
+                    <h3><i class="fas fa-rocket"></i> 使用指南</h3>
+                    <ul>
+                        <li>点击右下角悬浮按钮开启问答</li>
+                        <li>上传文档构建专属知识库</li>
+                        <li>输入自然语言问题获取答案</li>
+                        <li>点击答案查看原文定位</li>
+                        <li>保存问答历史以备后续参考</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px; color: #a0d7ff;">
+                <p>点击右下角悬浮按钮开始体验智能问答</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 新增：QAnything 按钮 -->
+    <div id="qanything-float-button" class="qanything-float-button">
+        <img src="https://qanything.oss-cn-beijing.aliyuncs.com/qanything.png" alt="QAnything">
+    </div>
+
+    <!-- 新增：QAnything 按钮 -->
+    <div class="qanything-float-button">
+        <img src="https://qanything.oss-cn-beijing.aliyuncs.com/qanything.png" alt="QAnything">
+    </div>
+    <!-- 新增QAnything脚本 -->
+    <script
+        src="https://ai.youdao.com/saas/qanything/js/agent-iframe-min.js"
+        id="qanything-iframe"
+        data-agent-src="https://ai.youdao.com/saas/qanything/#/bots/0166FDD5D35F4A6D/share"
+        data-default-open="false"
+        data-drag="false"
+        data-open-icon="https://download.ydstatic.com/ead/icon-qanything-iframe-btn.png"
+        data-close-icon="https://download.ydstatic.com/ead/icon-qanything-iframe-btn.png"
+    ></script>
+    <script>
+        // ... 原有的JavaScript代码 ...
+        
+        // 添加QAnything控制功能
+        document.getElementById('show-qanything').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // 显示浮动按钮
+            const floatButton = document.getElementById('qanything-float-button');
+            floatButton.style.display = 'flex';
+            
+            // 触发QAnything打开
+            const qaScript = document.getElementById('qanything-iframe');
+            if (window.QAnythingAgentIframe && window.QAnythingAgentIframe.open) {
+                window.QAnythingAgentIframe.open();
+            } else if (qaScript) {
+                // 如果API不可用，模拟点击浮动按钮
+                setTimeout(() => {
+                    floatButton.click();
+                }, 300);
+            }
+        });
+        
+        // 监听QAnything的打开状态
+        document.addEventListener('qanything-iframe-status', function(event) {
+            const floatButton = document.getElementById('qanything-float-button');
+            if (event.detail.isOpen) {
+                floatButton.style.display = 'none';
+            } else {
+                floatButton.style.display = 'flex';
+            }
+        });
+          // 为浮动按钮添加点击事件
+          document.getElementById('qanything-float-button').addEventListener('click', function() {
+            if (window.QAnythingAgentIframe && window.QAnythingAgentIframe.open) {
+                window.QAnythingAgentIframe.open();
+            }
+        });
+        
+        // 将浮动按钮绑定到QAnything的控件上
+        window.addEventListener('load', function() {
+            const qaScript = document.getElementById('qanything-iframe');
+            if (qaScript) {
+                // 隐藏默认的浮动按钮（如果有）
+                const defaultButton = document.querySelector('[data-qanything="float-button"]');
+                if (defaultButton) {
+                    defaultButton.style.display = 'none';
+                }
+            }
+        });
+
+        
+    </script>
+    
+    <script>
+        // 更新日期和时间
+        function updateDateTime() {
+            const now = new Date();
+            
+            // 格式化日期
+            const year = now.getFullYear();
+            const month = now.getMonth() + 1;
+            const day = now.getDate();
+            const weekdays = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+            const weekday = weekdays[now.getDay()];
+            
+            // 格式化时间
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            // 更新页面元素
+            document.getElementById('current-date').textContent = `${year}年${month}月${day}日 ${weekday}`;
+            document.getElementById('current-time').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        
+        // 页面切换功能
+        document.getElementById('show-qanything').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('qanything-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #4b6cb7, #182848)';
+            window.scrollTo(0, 0);
+        });
+        
+        document.getElementById('back-to-nav-qanything').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('qanything-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 浮动按钮交互
+        document.getElementById('qanything-float-button').addEventListener('click', function() {
+            alert('QAnything 智能问答功能已激活！\n\n您可以上传文档或输入问题开始使用。');
+            this.style.background = 'linear-gradient(135deg, #1a2a6c, #b21f1f)';
+            setTimeout(() => {
+                this.style.background = 'linear-gradient(135deg, #4b86b4, #1a2a6c)';
+            }, 1000);
+        });
+        
+        // 初始调用并设置定时器
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // 卡片点击效果
+        document.querySelectorAll('.link-item').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                const title = this.querySelector('.link-title').textContent;
+                
+                // 添加点击效果
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 300);
+            });
+        });
+        
+        // 页面切换功能
+        document.getElementById('show-nanchang').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('nanchang-page').style.display = 'block';
+            document.getElementById('css-exercise-page').style.display = 'none';
+            document.getElementById('css-exercise-02-page').style.display = 'none';
+            document.getElementById('forum-page').style.display = 'none';
+            document.getElementById('css-core-page').style.display = 'none';
+            document.getElementById('position-demo-page').style.display = 'none';
+            document.getElementById('js-exercise-page').style.display = 'none';
+            document.getElementById('internet-research-page').style.display = 'none';
+            document.getElementById('async-demo-page').style.display = 'none';
+            document.body.style.background = 'linear-gradient(to right, #6495ED, #FFFFFF)';
+            window.scrollTo(0, 0);
+        });
+        
+        document.getElementById('show-css-exercise').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('nanchang-page').style.display = 'none';
+            document.getElementById('css-exercise-page').style.display = 'block';
+            document.getElementById('css-exercise-02-page').style.display = 'none';
+            document.getElementById('forum-page').style.display = 'none';
+            document.getElementById('css-core-page').style.display = 'none';
+            document.getElementById('position-demo-page').style.display = 'none';
+            document.getElementById('js-exercise-page').style.display = 'none';
+            document.getElementById('internet-research-page').style.display = 'none';
+            document.getElementById('async-demo-page').style.display = 'none';
+            document.body.style.background = 'linear-gradient(to bottom, #e3f2fd, #bbdefb)';
+            window.scrollTo(0, 0);
+        });
+
+        // 修复CSS-06卡片点击事件
+        document.getElementById('show-research-page').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('nanchang-page').style.display = 'none';
+            document.getElementById('css-exercise-page').style.display = 'none';
+            document.getElementById('css-exercise-02-page').style.display = 'none';
+            document.getElementById('forum-page').style.display = 'none';
+            document.getElementById('css-core-page').style.display = 'none';
+            document.getElementById('position-demo-page').style.display = 'none';
+            document.getElementById('js-exercise-page').style.display = 'none';
+            document.getElementById('internet-research-page').style.display = 'block';
+            document.getElementById('async-demo-page').style.display = 'none';
+            document.body.style.background = 'linear-gradient(135deg, #e3f2fd, #bbdefb)';
+            window.scrollTo(0, 0);
+        });
+        
+        // CSS-02卡片点击事件
+        document.getElementById('show-css-exercise-02').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('nanchang-page').style.display = 'none';
+            document.getElementById('css-exercise-page').style.display = 'none';
+            document.getElementById('css-exercise-02-page').style.display = 'block';
+            document.getElementById('forum-page').style.display = 'none';
+            document.getElementById('css-core-page').style.display = 'none';
+            document.getElementById('position-demo-page').style.display = 'none';
+            document.getElementById('js-exercise-page').style.display = 'none';
+            document.getElementById('internet-research-page').style.display = 'none';
+            document.getElementById('async-demo-page').style.display = 'none';
+            document.body.style.background = 'linear-gradient(to bottom, #d1e8e2, #b9e0d3)';
+            window.scrollTo(0, 0);
+        });
+        
+        document.getElementById('show-forum').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('nanchang-page').style.display = 'none';
+            document.getElementById('css-exercise-page').style.display = 'none';
+            document.getElementById('css-exercise-02-page').style.display = 'none';
+            document.getElementById('forum-page').style.display = 'block';
+            document.getElementById('css-core-page').style.display = 'none';
+            document.getElementById('position-demo-page').style.display = 'none';
+            document.getElementById('js-exercise-page').style.display = 'none';
+            document.getElementById('internet-research-page').style.display = 'none';
+            document.getElementById('async-demo-page').style.display = 'none';
+            document.body.style.background = 'linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c)';
+            window.scrollTo(0, 0);
+        });
+        
+        document.getElementById('back-to-nav').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('nanchang-page').style.display = 'none';
+            document.getElementById('css-exercise-page').style.display = 'none';
+            document.getElementById('css-exercise-02-page').style.display = 'none';
+            document.getElementById('forum-page').style.display = 'none';
+            document.getElementById('css-core-page').style.display = 'none';
+            document.getElementById('position-demo-page').style.display = 'none';
+            document.getElementById('js-exercise-page').style.display = 'none';
+            document.getElementById('internet-research-page').style.display = 'none';
+            document.getElementById('async-demo-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        document.getElementById('back-to-nav-css').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('css-exercise-page').style.display = 'none';
+            document.getElementById('css-exercise-02-page').style.display = 'none';
+            document.getElementById('forum-page').style.display = 'none';
+            document.getElementById('css-core-page').style.display = 'none';
+            document.getElementById('position-demo-page').style.display = 'none';
+            document.getElementById('js-exercise-page').style.display = 'none';
+            document.getElementById('internet-research-page').style.display = 'none';
+            document.getElementById('async-demo-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        // CSS-02返回按钮事件
+        document.getElementById('back-to-nav-css-02').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('css-exercise-02-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        document.getElementById('back-to-nav-forum').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('forum-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 南昌页面导航效果
+        document.querySelectorAll('#nanchang-page .nav-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 显示CSS核心概念页面
+        document.getElementById('show-css-core').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('css-core-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #e0f7fa, #b2ebf2, #80deea)';
+            window.scrollTo(0, 0);
+        });
+
+         // 返回导航功能
+         document.getElementById('back-to-nav-core').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('css-core-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 显示定位演示页面
+        document.getElementById('show-position-demo').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('position-demo-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #a6c0fe, #f68084)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 返回导航功能（定位演示页面）
+        document.getElementById('back-to-nav-position').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('position-demo-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 显示JavaScript练习页面
+        document.getElementById('show-js-exercise').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('js-exercise-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ff9a9e, #fad0c4)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 返回导航功能（JavaScript练习页面）
+        document.getElementById('back-to-nav-js').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('js-exercise-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 返回导航功能（研究页面）
+        document.getElementById('back-to-nav-research').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('internet-research-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 添加卡片悬停效果增强
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // 三界论坛帖子交互效果
+        document.querySelectorAll('.post').forEach(post => {
+            post.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+        
+        // 运行JavaScript代码并显示输出
+        document.getElementById('run-js-code').addEventListener('click', function() {
+            const outputElement = document.getElementById('js-output');
+            outputElement.innerHTML = '';
+            
+            // 重写console.log以捕获输出
+            const originalConsoleLog = console.log;
+            console.log = function(message) {
+                originalConsoleLog.apply(console, arguments);
+                outputElement.innerHTML += message + '\n';
+            };
+            
+            try {
+                // 执行JavaScript代码
+                eval(`
+                    let a = 100;
+                    console.log(a);
+                    const api_key = 'ssssx-=-dddd';
+                    console.log(api_key);
+                    console.log(typeof a, typeof api_key, typeof true);
+                    
+                    let b = '1';
+                    console.log(a + b);
+                    console.log(a + Number(b));
+                    
+                    let c = '100';
+                    console.log(a == c);
+                    console.log(a === c);
+                    
+                    // 分支语句
+                    let current_time = '12:20';
+                    if (current_time == '12:20') {
+                        console.log('冲啊！');
+                    } else {
+                        console.log('假装学习……');
+                    }
+                    
+                    // for循环
+                    for (let i = 1; i <= 10; i++) {
+                        console.log(i);
+                    }
+                    
+                    // while循环
+                    let hug = 60;
+                    while (hug > 0) {
+                        console.log('继续干饭……');
+                        hug = hug - 10;
+                    }
+                    
+                    // 函数
+                    function intro() {
+                        console.log('你好，我是一个脚本！');
+                    }
+                    intro();
+                    
+                    function intro(content) {
+                        console.log('以下是我介绍的内容：' + String(content));
+                    }
+                    intro('JavaScript基础练习');
+                `);
+            } catch (error) {
+                console.log('错误: ' + error.message);
+            }
+            
+            // 恢复原始console.log
+            console.log = originalConsoleLog;
+        });
+        
+        // 修复CSS-07卡片点击事件
+        document.getElementById('show-async-demo').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('navigation-page').style.display = 'none';
+            document.getElementById('async-demo-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #a8edea, #fed6e3)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 返回导航功能（异步编程页面）
+        document.getElementById('back-to-nav-async').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('async-demo-page').style.display = 'none';
+            document.getElementById('navigation-page').style.display = 'block';
+            document.body.style.background = 'linear-gradient(135deg, #ffd6e7, #ffb3c6, #ff8fab)';
+            window.scrollTo(0, 0);
+        });
+        
+        // 运行异步函数
+        document.getElementById('run-async-code').addEventListener('click', function() {
+            const outputElement = document.getElementById('async-output');
+            outputElement.innerHTML = '';
+            
+            // 重写console.log以捕获输出
+            const originalConsoleLog = console.log;
+            console.log = function(message) {
+                originalConsoleLog.apply(console, arguments);
+                outputElement.innerHTML += message + '\n';
+            };
+            
+            try {
+                // 执行异步代码
+                eval(`
+                    async function getSomething() {
+                        return new Promise(resolve => {
+                            setTimeout(() => {
+                                console.log('111111');
+                                resolve('操作完成');
+                            }, 2000);
+                        });
+                    }
+                    
+                    getSomething()
+                        .then(result => {
+                            console.log('异步函数成功完成，结果:', result);
+                        })
+                        .catch(error => {
+                            console.error('异步函数错误:', error);
+                        });
+                    
+                    console.log('2222222');
+                `);
+            } catch (error) {
+                console.log('错误: ' + error.message);
+            }
+            
+            // 恢复原始console.log
+            console.log = originalConsoleLog;
+        });
+        
+        // 获取GitHub仓库信息
+        document.getElementById('run-github-api').addEventListener('click', function() {
+            const outputElement = document.getElementById('repo-info');
+            outputElement.innerHTML = '正在获取仓库信息...';
+            
+            // 使用GitHub API获取仓库信息
+            fetch('https://api.github.com/repos/yangjh-xbmu/Web-develop')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('网络响应失败');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    outputElement.innerHTML = 
+                        `仓库名称: ${data.name}\n` +
+                        `描述: ${data.description || '无描述'}\n` +
+                        `创建时间: ${new Date(data.created_at).toLocaleDateString()}\n` +
+                        `最后推送时间: ${new Date(data.pushed_at).toLocaleString()}\n` +
+                        `星标数: ${data.stargazers_count}\n` +
+                        `仓库URL: ${data.html_url}`;
+                })
+                .catch(error => {
+                    outputElement.innerHTML = '获取仓库信息失败: ' + error.message;
+                });
+        });
+    </script>
+</body>
+</html>
