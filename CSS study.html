@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《哪吒之魔童闹海》专题网页</title>
+    <style>
+           /* 全局样式 */
+           body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", sans-serif;
+            background-image: url('https://wyw-pics.wxqcloud.qq.com.cn/businessType-6/2025/02/20/c986400a-03d2-43ee-9bc7-5b1f73b14e66/2d1f38dea6.jpg/750?sign=d1377cb377c8ee5588990e8a45a63c34&t=1743159604');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #00008B; /* 深海蓝 */
+            line-height: 1.7;
+            position: relative;
+        }
+
+        /* 添加遮罩层使内容更易读 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            z-index: -1;
+        }
+
+        /* 容器布局 */
+        .container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* 标题样式 */
+        h1 {
+            position: relative;
+            text-align: center;
+            color: #FF0000; /* 红色 */
+            font-size: 2.5em;
+            margin: 20px 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: titleFadeIn 1s ease-out;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            letter-spacing: 8px; 
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h2 {
+            position: relative;
+            color: #00008B; /* 深海蓝 */
+            border-left: 5px solid #FF0000; /* 红色 */
+            padding-left: 15px;
+            margin: 30px 0;
+        }
+
+        /* 段落样式 */
+        p {
+            text-indent: 2em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+         /* 角色列表样式 - 新样式 */
+        .character-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            list-style-type: none; 
+            padding: 0; 
+        }
+
+        .character-list li {
+            position: relative;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #00008B; /* 深海蓝 */
+        }
+
+        .character-list li strong {
+            color: #FF0000; /* 红色 */
+            font-size: 1.3em;
+            display: block;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        /* 台词表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        td, th {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* 图片展示区 */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* 链接样式 */
+        a {
+            color: #FF0000; /* 红色 */
+            text-decoration: none;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        a:hover {
+            color: #FF6347; /* 偏红的颜色，hover效果 */
+        }
+
+        .link-list li {
+            margin-bottom: 10px;
+        }
+
+        /* 搜索框样式 */
+        form {
+            position: relative;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #00008B; /* 深海蓝 */
+            border-radius: 25px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="submit"] {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            padding: 8px 20px;
+            background: #FF0000; /* 红色 */
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background: #B22222; /* 深红色，hover效果 */
+        }
+
+        /* 动画效果 */
+        @keyframes titleFadeIn {
+            from { 
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        header {
+            position: relative;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>哪吒之魔童闹海</h1>
+    </header>
+
+    <div class="container">
+        <section class="content">
+            <h2 class="section-title">影片简介</h2>
+            <p class="summary">《哪吒之魔童闹海》延续前作的精彩，在新的故事里，哪吒将面临前所未有的挑战。天劫过后，哪吒与敖丙虽幸运保住灵魂，可失去肉身的他们，若不尽快重塑，便会魂飞魄散。太乙真人决定借助七色宝莲之力，为二人重塑肉身，然而这一过程却阻碍重重。与此同时，申公豹暗中放出被囚的四龙王，其中东海龙王敖光化作人形，扬言 "我若出战，就让陈塘关鸡犬不留"。面对龙王的威胁，为守护陈塘关百姓，哪吒毅然决然地挺身而出，即将与四海龙王展开一场惊心动魄的大战，其命运也随之迎来更多未知的挑战。</p>
+        </section>
+
+        <section class="content">
+            <h2 class="section-title">电影主要角色介绍</h2>
+            <ul class="character-list">
+                <li>
+                    <strong>哪吒</strong>李靖之子，性格勇敢无畏又不失顽皮。经历天劫后灵魂得以保存，但肉身面临魂飞魄散的危机，正等待太乙真人用七色宝莲重塑肉身。他焦虑自嘲不够帅，喜感十足，内心有着强烈的正义感和责任感。
+                </li>  
+                <li>
+                    <strong>敖丙</strong>东海龙王三太子，与哪吒一同经历天劫，灵魂暂存。他深情重义，和哪吒有着深厚的情谊，两人命运紧紧相连，在重塑肉身的过程中共同面对困难。
+                </li>  
+                <li>    
+                    <strong>李靖</strong>陈塘关的镇关总兵，哪吒的父亲，身为将军威严庄重，又有着为人父母的慈爱与责任。他不仅是一个严厉的父亲，更是一个充满智慧和决心的领导者。
+                </li>  
+                <li>   
+                    <strong>殷夫人</strong>哪吒的母亲，爱子如命，巾帼不让须眉，温柔且坚韧，关心爱护哪吒，在家庭中给予哪吒温暖和力量。平日里斩妖除魔，想要借此为哪吒积德，却因此苦于无法空出时间陪伴哪吒，最后在无量仙翁的炼丹炉中被炼化成了一个丹，炼成丹前最后一刻嘱咐哪吒一定要好好活下去。
+                </li>  
+                <li>    
+                    <strong>太乙真人</strong>法力高强的仙人，打算用七色宝莲给哪吒和敖丙重塑肉身，却在这一过程中遭遇重重阻碍。他性格诙谐幽默，对哪吒关爱有加，在关键时刻总会挺身而出，帮助哪吒化解危机。
+                </li>  
+                <li>
+                    <strong>申公豹</strong>昆仑山玉虚宫元始天尊弟子，敖丙的师傅。其随身佩带雷公鞭，后升级为裂空雷公鞭，有法宝开天珠，坐骑是黑点虎。原本想要毁灭陈塘关，后被李靖和弟弟申小豹感化，只身对抗龙族三大龙王，保护陈塘关。
+                </li>  
+                <li>
+                    <strong>无量仙翁</strong>无量仙翁是元始天尊闭关期间玉虚宫的执掌者。阐教第一弟子，表面仙风道骨、满口仁义，实则以"教化"为名行剥削之实，通过炼丹将妖族和龙族炼化为仙丹，提升本门实力，同时打压异族进阶的可能性。
+                </li>  
+                <li>
+                    <strong>敖光</strong>东海龙王，四海龙王之首，一头银色长发，身披银色龙鳞铠甲。一招 "水刀" 气势磅礴，有着强烈的统治欲和权威感，放出狠话 "我若出战，必让陈塘关鸡犬不留"，残暴狠辣，是哪吒的主要对手之一。
+                </li>
+                <li>
+                    <strong>敖闰</strong>西海龙王，四海龙王中唯一的女性角色，低眉抬眸间美艳魅惑十足，充满神秘感，裙摆和龙鳍似水母摆动，善用裂空爪，精明睿智、难以琢磨，是四海龙王中的智囊和策略家。
+                </li>
+            </ul>
+        </section>
+
+        <section class="content">
+            <h2 class="section-title">经典台词</h2>
+            <table border="1">
+                <tr>
+                    <td><b>角色</b></td>
+                    <td><b>台词</b></td>
+                </tr>
+                <tr>
+                    <td>哪吒</td>
+                    <td>小爷是魔，那又如何！</td>
+                </tr>
+                <tr>
+                    <td>敖丙</td>
+                    <td>若前方无路，我就踏出一条路！</td>
+                </tr>
+                <tr>
+                    <td>殷夫人</td>
+                    <td>瞧不起老娘啊，我也是堂堂武将！</td>
+                </tr>
+                <tr>
+                    <td>李靖</td>
+                    <td>亦有言道，行善道则德全！</td>
+                </tr>
+                <tr>
+                    <td>太乙真人</td>
+                    <td>诶诶，莫要冲动！</td>
+                </tr>
+                <tr>
+                    <td>敖光</td>
+                    <td>当初为了保全整个龙族，我没得选！</td>
+                </tr>
+                <tr>
+                    <td>申公豹</td>
+                    <td>人心中的成见，是一座大山，任你怎么努力，都休想搬动！</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="content">
+            <h2 class="section-title">电影主要角色海报展示</h2>
+            <div class="gallery">
+                <img src="https://bkimg.cdn.bcebos.com/pic/aec379310a55b319ebc4fd8edbf09526cffc1f17b98d?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="哪吒"width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/cefc1e178a82b9014a90a4c8ebd4be773912b21b418c?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270"alt="敖丙" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/a8773912b31bb051f819dfd3ae23cdb44aed2f734a8c?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="李靖" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/d4628535e5dde71190efae0d3fb6d91b9d16fcfacb8c?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="殷夫人" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/a6efce1b9d16fdfaaf512d152cd69b5494eef11fcd8c?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="太乙真人" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/4610b912c8fcc3cec3fde5cf0a1cc188d43f86948a8c?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="申公豹" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/7c1ed21b0ef41bd5ad6ed0b7fe8396cb39dbb6fd9765?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="无量仙翁" width="240" height="335" /> 
+            <img src="https://bkimg.cdn.bcebos.com/pic/e1fe9925bc315c6034a8b41415e8dc1349540823d98c?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="敖光" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/2e2eb9389b504fc2d56250167284f01190ef76c6c7d4?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="敖闰" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/adaf2edda3cc7cd98d10c8caae58363fb80e7bec3bd4?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="敖钦" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/e61190ef76c6a7efce1b41356aa3b851f3deb48fc8d4?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="敖顺" width="240" height="335" />
+            <img src="https://bkimg.cdn.bcebos.com/pic/78310a55b319ebc4b74577da2d7fd8fc1e178a82b865?x-bce-process=image/format,f_auto/resize,m_lfit,limit_1,w_270" alt="鹿童" width="240" height="335" />
+        </div>
+        </section>
+
+        <section class="content">
+            <h2 class="section-title">相关链接</h2>
+            <p>你可以点击以下链接了解更多关于《哪吒2》的信息：</p>
+            <ul class="link-list">
+                <li>
+                    <a href="https://baike.baidu.com/item/%E5%93%AA%E5%90%92%E4%B9%8B%E9%AD%94%E7%AB%A5%E9%97%B9%E6%B5%B7/61115689?anchor=1#lemma-summary">《哪吒2》官方介绍</a>
+                </li>
+                <li>
+                    <a href="https://www.bilibili.com/video/BV11McieTEN5/">《哪吒2》PV预告</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="content">
+            <h3>你可以在此输入相关问题，了解更多关于《哪吒2》的信息</h3>
+            <form action="https://home.firefoxchina.cn/">
+                <input type="text" name="search_text" placeholder="搜索相关信息" />
+                <input type="submit" value="搜索" />
+            </form>
+        </section>
+    </div>
+</body>
+</html>

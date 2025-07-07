@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web前端设计作品集 - 黄雪梅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            background-color: #fffacd; /* 浅黄色 */
+            min-height: 100vh;
+        }
+
+        /* 左侧导航栏样式 */
+        .nav-container {
+            width: 240px;
+            background-color: #e6e6fa; /* 淡紫色 */
+            color: white;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 15px;
+        }
+
+        .profile-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .profile-title {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .nav-item.active {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-links {
+            margin-top: auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .social-links a:hover {
+            opacity: 1;
+        }
+
+        /* 右侧内容区样式 */
+        .content-container {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .header {
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            background: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: #555;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #3b5998;
+            color: white;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .work-box {
+            background: #e0f7e0; /* 浅绿色 */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            padding-top: 20px;
+        }
+
+        .work-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .work-info {
+            padding: 20px;
+        }
+
+        .work-info h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .work-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .work-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: #f0f2f5;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+
+        .work-box a {
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            background-color: #3b5998;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        /* 修正无效颜色值 */
+        .work-box a:hover {
+            background-color: #2d4373;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .nav-container {
+                width: 100%;
+                height: auto;
+                padding: 15px;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                position: relative;
+            }
+            
+            .profile-section {
+                display: none;
+            }
+            
+            .nav-items {
+                display: flex;
+                gap: 10px;
+            }
+            
+            .nav-item {
+                padding: 8px 12px;
+            }
+            
+            .social-links {
+                margin-top: 0;
+            }
+            
+            .content-container {
+                padding: 20px;
+            }
+            
+            .works-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 左侧导航栏 -->
+    <div class="nav-container">
+        <div class="profile-section">
+            <img src="https://img2.baidu.com/it/u=2756583195,183707609&fm=253&fmt=auto&app=138&f=JPEG?w=400&h=400" alt="个人头像" class="profile-pic">
+            <div class="profile-name">黄雪梅</div>
+            <div class="profile-title">Web前端开发初学者</div>
+        </div>
+        
+        <div class="nav-items">
+            <div class="nav-item active">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                    <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+                </svg>
+                首页
+            </div>
+            <div class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-book" viewBox="0 0 16 16">
+                    <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.11-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.11-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5v-11a.5.5 0 0 0-.179-.381c-.953-.433-2.484-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z"/>
+                </svg>
+                课程作业
+            </div>
+            <div class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                </svg>
+                关于我
+            </div>
+            <div class="nav-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z"/>
+                </svg>
+                联系方式
+            </div>
+        </div>
+        
+        <div class="social-links">
+            <a href="#" title="微信">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8.258 7.254c.203 0 .376-.32.654-.798.232-.732-.422-1.115-.676-1.115-.203 0-.371.32-.371.851s.183 1.062.393 1.062z"/>
+                    <path d="M0 6.5V1h16v10.5c0 .818-.393 1.544-1 2v2a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V14H4v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2a2.496 2.496 0 0 1-1-2V6.5zM1.5 2h13a.5.5 0 0 1 .5.5v8.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11V2.5a.5.5 0 0 1 .5-.5z"/>
+                </svg>
+            </a>
+            <a href="#" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+            </a>
+            <a href="#" title="微博">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm6.392 8.292c-.26.254-.526.48-.809.705-.318.256-.65.49-.998.705-.744.465-1.55.723-2.42.723-1.809 0-3.328-1.177-3.328-2.588 0-1.412 1.52-2.588 3.328-2.588.647 0 1.246.14 1.756.377.51.236.926.56 1.218.95.292.388.455.83.455 1.26 0 .43-.163.873-.455 1.261-.292.389-.708.713-1.218.95-.51.236-1.109.377-1.756.377-1.809 0-3.328-1.177-3.328-2.588 0-1.412 1.52-2.588 3.328-2.588.647 0 1.246.14 1.756.377.51.236.926.56 1.218.95.292.388.455.83.455 1.26 0 .43-.163.873-.455 1.261z"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+    <!-- 右侧内容区 -->
+    <div class="content-container">
+        <div class="header">
+            <h1>Web前端设计课程作品集</h1>
+            <p>这里展示了我在《Web前端设计》课程中完成的各项作业和作品，用于记录我的学习历程和技术成长。每个练习和作品都代表了我对Web前端技术的理解和实践。</p>
+        </div>
+        
+        <div class="filter-bar">
+            <button class="filter-btn active">全部</button>
+            <button class="filter-btn">HTML</button>
+            <button class="filter-btn">CSS</button>
+            <button class="filter-btn">JavaScript</button>
+        </div>
+        
+        <div class="works-grid">
+            <div class="work-box">
+                <div class="work-info">
+                    <h3>HTML练习</h3>
+                    <p>使用HTML5完成的基础网页结构练习，包含各种常用标签和表单元素的应用。</p>
+                    <div class="work-tags">
+                        <span class="tag">HTML</span>
+                        <span class="tag">Block</span>
+                        <span class="tag">img</span>
+                        <span class="tag">表单</span>
+                    </div>
+                    <a href="file:///D:/Users/H1337/Desktop/WEB/huangchen/Index.html" target="_blank">查看详情</a>
+                </div>
+            </div>
+            
+            <div class="work-box">
+                <div class="work-info">
+                    <h3>CSS练习1</h3>
+                    <p>CSS基础样式练习，包含使用方式、选择符、文本样式等内容。</p>
+                    <div class="work-tags">
+                        <span class="tag">CSS</span>
+                        <span class="tag">使用方式</span>
+                        <span class="tag">选择符</span>
+                        <span class="tag">文本样式</span>
+                    </div>
+                    <a href="file:///D:/Users/H1337/Desktop/WEB/huangchen/03-css-01.html" target="_blank">查看详情</a>
+                </div>
+            </div>
+            
+            <div class="work-box">
+                <div class="work-info">
+                    <h3>CSS练习2</h3>
+                    <p>CSS基础技术练习，优化HTML练习网页。</p>
+                    <div class="work-tags">
+                        <span class="tag">CSS</span>
+                        <span class="tag">优化网页</span>
+                    </div>
+                    <a href="file:///D:/Users/H1337/Desktop/WEB/huangchen/CSS%20study.html" target="_blank">查看详情</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 为筛选按钮添加点击事件
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                // 移除所有按钮的active类
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // 为当前点击的按钮添加active类
+                this.classList.add('active');
+                
+                // 筛选逻辑
+                const category = this.textContent.trim();
+                const workBoxes = document.querySelectorAll('.work-box');
+                
+                workBoxes.forEach(box => {
+                    const tags = box.querySelectorAll('.tag');
+                    let shouldShow = category === '全部';
+                    
+                    tags.forEach(tag => {
+                        if (category === 'HTML' && tag.textContent.includes('HTML')) {
+                            shouldShow = true;
+                        } else if (category === 'CSS' && tag.textContent.includes('CSS')) {
+                            shouldShow = true;
+                        } else if (category === 'JavaScript' && tag.textContent.includes('JavaScript')) {
+                            shouldShow = true;
+                        }
+                    });
+                    
+                    box.style.display = shouldShow ? 'block' : 'none';
+                });
+            });
+        });
+        
+        // 为导航项添加点击事件
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

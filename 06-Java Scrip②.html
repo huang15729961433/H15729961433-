@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>语法</title>
+    <script>
+        // 1. 类和对象
+        class Car {
+            constructor(brand, model, year) {
+                this.year = year;
+            }
+            start() {
+                console.log("汽车${this.brand}${this.model}启动了");
+            }
+            stop() {
+                console.log("汽车${this.brand}${this.model}停止了");
+            }
+        }
+        let myCar = new Car("Toyota", "Corolla", 2022);
+        myCar.start();
+        myCar.stop();
+ 
+class ElectricCar extends Car {
+    constructor(brand, model, year, range) {
+        super(brand, model, year);
+        this.range = range;
+    }
+    charge() {
+        console.log("电动汽车${this.brand}${this.model}正在充电");
+    }
+}
+let myElectricCar = new ElectricCar("Tesla", "Model S", 2022, 300);
+myElectricCar.start();
+myElectricCar.charge();
+
+     //回调函数练习
+    console.log("回调函数练习");
+
+    setTimeout(function() {
+        console.log("延迟执行的代码");
+    }, 2000);
+
+    console.log("回调函数练习");
+
+ </script>
+</head>
+
+<body>
+    <div id="demo">div content</div>
+</body>
+<script>
+    myDom = document.getElementById("demo");
+    myDom.innerHTML = "这是从脚本动态更改的内容";
+</script>
+</html>

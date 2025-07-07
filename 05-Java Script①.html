@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script学习助手</title>
+    <script>
+         let a = 10
+        const title = '不变的值'
+        // alert(title)
+        let b = '10'
+        console.log(a == b)
+        console.log(a === b)
+        console.log(a + b)
+        console.log(a + Number(b))
+
+        let age = 18
+        if (age > 14) {
+            console.log('需要负责')
+        } else {
+            console.log('侥幸逃脱')
+        }
+        for (let i = 0; i < 9; i++) {
+            console.log(i)
+        }
+        let hug = 70
+        while (hug > 0) {
+            console.log('eating')
+            hug = hug - 10
+        }
+
+        function sayHello() {
+            console.log('这是一个打招呼的函数')
+        }
+        sayHello()
+        function sayHello2(message) {
+            console.log(message)
+        }
+        sayHello2('这是带参数的打招呼函数')
+        function sayHello3(message) {
+            console.log(message)
+            return '你好，这是返回值'
+        }
+        sayHello3('你好')
+        result = sayHello3('你好')
+        console.log(result)
+
+
+        //以下为练习
+
+         let studyDays = 10;
+        const studyGoal = '掌握Java Script基础';
+        let currentStage = '第1阶段';
+
+        console.log(studyDays == 10);
+        console.log(studyDays === 10);
+        console.log('当前学习阶段：' + currentStage + ', 已学习天数：' + studyDays);
+        console.log(studyDays + Number('5'));
+
+        let studyAge = 18;
+        if (studyAge > 14) {
+            console.log('有足够的认知能力进行深入学习');
+        } else {
+            console.log('可能需要更多引导学习');
+        }
+
+        // 模拟学习打卡，循环9次
+        for (let i = 0; i < 9; i++) {
+            console.log('第' + (i + 1) + '次学习打卡');
+        }
+
+        // 模拟学习进度，从70%开始递减
+        let studyProgress = 70;
+        while (studyProgress > 0) {
+            console.log('当前学习进度：' + studyProgress + '%，继续学习');
+            studyProgress = studyProgress - 10;
+        }
+
+        // 定义一个打招呼函数，用于欢迎学习
+        function sayHello() {
+            console.log('欢迎来到Java Script学习小助手！');
+        }
+        sayHello();
+
+        // 带参数的函数
+        function studyTip(tip) {
+            console.log(tip);
+        }
+        studyTip('今天记得复习函数的使用哦！');
+
+        // 带返回值的函数
+        function StudyAdvice(question) {
+            console.log(question);
+            return '多做练习题，巩固知识点';
+        }
+        StudyAdvice('如何提高Java Script水平？');
+        let adviceResult = StudyAdvice('学习遇到困难怎么办？');
+        console.log(adviceResult);
+
+    </script>
+</head>
+
+<body>
+    <h1>Java Script学习助手</h1>
+</body>
+
+</html>

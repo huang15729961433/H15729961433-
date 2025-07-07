@@ -1,0 +1,43 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #e6e6fa; /* 浅紫色边框 */
+  border-radius: 4px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #9370db; /* 浅紫色背景 */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:disabled {
+  background-color: #f0e68c; /* 浅黄色背景 */
+  cursor: not-allowed;
+}
+
+.error {
+  color: #90ee90; /* 浅绿色文字 */
+  margin-bottom: 20px;
+}
+
+.answer {
+  background-color: #f0e68c; /* 浅黄色背景 */
+  padding: 20px;
+  border-radius: 4px;
+}
